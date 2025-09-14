@@ -2,16 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Delete Account - Shine</title>
+  <link rel="icon" type="image/png" href="shine.jpeg">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Arial", sans-serif;
+    }
+    body {
+      background: #121212;
+      color: #fff;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: #1c1c1c;
+    }
+    .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    nav ul li {
+      margin-left: 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #ddd;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav ul li a:hover {
+      color: #ff3366;
+    }
+    .container {
+      max-width: 800px;
+      margin: 60px auto;
+      background: #1c1c1c;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255,51,102,0.3);
+    }
+    h1 {
+      font-size: 36px;
+      color: #ff3366;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: #ddd;
+      text-align: center;
+    }
+    a.email-link {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #ff3366;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    a.email-link:hover {
+      background: #ff0055;
+    }
+    footer {
+      background: #1c1c1c;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+      font-size: 14px;
+      color: #aaa;
+    }
+  </style>
 </head>
 <body>
-  <h1>Delete Account</h1>
-  <p>If you wish to delete your account and related data from Shine apps, 
-     please send an email to:</p>
+  <!-- Navbar -->
+  <header>
+    <div class="logo">
+      <img src="shine.jpeg" alt="Shine Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="https://play.google.com/store/apps/details?id=com.shine.playnest" target="_blank">Apps</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="delete.html" class="active">Delete Account</a></li>
+        <li><a href="mailto:shinedeveloper2@gmail.com">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <p><b>shinedeveloper2@gmail.com</b></p>
+  <!-- Delete Section -->
+  <div class="container">
+    <h1>Delete Account</h1>
+    <p>If you wish to delete your account and all related data from Shine apps, please send an email to:</p>
+    <p><a href="mailto:shinedeveloper2@gmail.com" class="email-link">shinedeveloper2@gmail.com</a></p>
+    <p>Include your account details in the request. Your data deletion request will be processed within 7 business days.</p>
+  </div>
 
-  <p>Include your account details in the request. 
-     Your data deletion request will be processed within 7 business days.</p>
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Shine | Built by Sivi</p>
+  </footer>
 </body>
 </html>
