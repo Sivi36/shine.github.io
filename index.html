@@ -1,96 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shine - Official Website</title>
+  <title>Sivi - Official Portfolio</title>
   <link rel="icon" type="image/png" href="shine.jpeg">
   <style>
-    body {
-      text-align: center;
-      font-family: Arial, sans-serif;
+    * {
       margin: 0;
       padding: 0;
-      background: #f9f9f9;
-      color: #333;
+      box-sizing: border-box;
+      font-family: "Arial", sans-serif;
+    }
+    body {
+      background: #121212;
+      color: #fff;
     }
     header {
-      background: #007BFF;
-      color: #fff;
-      padding: 40px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: #1c1c1c;
     }
-    header img {
-      width: 120px;
-      height: auto;
-      border-radius: 12px;
+    .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
     }
-    h1 {
-      margin: 20px 0 10px;
-    }
-    p {
-      margin: 10px 0 20px;
-    }
-    section {
-      padding: 30px 20px;
-    }
-    h2 {
-      margin-bottom: 15px;
-      color: #007BFF;
-    }
-    ul {
+    nav ul {
+      display: flex;
       list-style: none;
-      padding: 0;
-      margin: 0 auto;
-      max-width: 400px;
     }
-    li {
-      margin: 12px 0;
+    nav ul li {
+      margin-left: 20px;
     }
-    a {
+    nav ul li a {
       text-decoration: none;
-      color: #007BFF;
+      color: #ddd;
       font-weight: bold;
+      transition: 0.3s;
     }
-    a:hover {
-      text-decoration: underline;
+    nav ul li a:hover {
+      color: #ff3366;
+    }
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 10%;
+      gap: 50px;
+    }
+    .hero-text {
+      max-width: 600px;
+    }
+    .hero-text h2 {
+      font-size: 16px;
+      letter-spacing: 2px;
+      color: #bbb;
+    }
+    .hero-text h1 {
+      font-size: 50px;
+      margin: 20px 0;
+    }
+    .hero-text h1 span {
+      color: #ff3366;
+    }
+    .hero-text p {
+      margin: 20px 0;
+      color: #aaa;
+      line-height: 1.6;
+    }
+    .hero-text .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin-top: 20px;
+      background: #ff3366;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .hero-text .btn:hover {
+      background: #ff0055;
+    }
+    .hero img {
+      width: 300px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255,51,102,0.5);
     }
     footer {
-      margin-top: 30px;
-      padding: 15px;
-      background: #f1f1f1;
+      background: #1c1c1c;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
       font-size: 14px;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
-  <!-- Header with Logo -->
+  <!-- Navbar -->
   <header>
-    <img src="shine.jpeg" alt="Shine Logo">
-    <h1>Shine</h1>
-    <p>Welcome to the official website of Shine.</p>
+    <div class="logo">
+      <img src="shine.jpeg" alt="Shine Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="https://play.google.com/store/apps/details?id=com.shine.playnest" target="_blank">Apps</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="delete.html">Delete Account</a></li>
+        <li><a href="mailto:shinedeveloper2@gmail.com">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Apps Section -->
-  <section>
-    <h2>Our Apps</h2>
-    <ul>
-      <li><a href="https://play.google.com/store/apps/details?id=com.shine.playnest" target="_blank">Play Nest</a></li>
-      <!-- Add more apps here -->
-    </ul>
-  </section>
-
-  <!-- Important Links -->
-  <section>
-    <h2>Important Links</h2>
-    <ul>
-      <li><a href="privacy.html">Privacy Policy</a></li>
-      <li><a href="delete.html">Delete Account</a></li>
-    </ul>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2>WELCOME TO MY WORLD</h2>
+      <h1>Hi, I'm <span>Sivi</span><br>a Student.</h1>
+      <p>I am the one who doesn’t care about anyone.<br>AI is our servant.</p>
+      <a href="https://play.google.com/store/apps/details?id=com.shine.playnest" target="_blank" class="btn">Get My App</a>
+    </div>
+    <div class="hero-img">
+      <img src="profile.jpg" alt="Sivi Profile">
+    </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Shine. All rights reserved.</p>
+    <p>© 2025 Shine | Built by Sivi</p>
   </footer>
 </body>
 </html>
