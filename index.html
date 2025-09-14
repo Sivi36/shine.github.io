@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shine - Official Website</title>
+  <link rel="icon" type="image/png" href="shine.jpeg">
   <style>
     body {
       text-align: center;
@@ -10,23 +12,39 @@
       margin: 0;
       padding: 0;
       background: #f9f9f9;
+      color: #333;
     }
-    .logo {
-      margin-top: 40px;
+    header {
+      background: #007BFF;
+      color: #fff;
+      padding: 40px 20px;
     }
-    .logo img {
-      width: 180px; /* Adjust size as needed */
+    header img {
+      width: 120px;
       height: auto;
+      border-radius: 12px;
     }
     h1 {
-      margin-top: 20px;
+      margin: 20px 0 10px;
+    }
+    p {
+      margin: 10px 0 20px;
+    }
+    section {
+      padding: 30px 20px;
+    }
+    h2 {
+      margin-bottom: 15px;
+      color: #007BFF;
     }
     ul {
       list-style: none;
       padding: 0;
+      margin: 0 auto;
+      max-width: 400px;
     }
     li {
-      margin: 8px 0;
+      margin: 12px 0;
     }
     a {
       text-decoration: none;
@@ -36,27 +54,43 @@
     a:hover {
       text-decoration: underline;
     }
+    footer {
+      margin-top: 30px;
+      padding: 15px;
+      background: #f1f1f1;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
-  <!-- Company Logo -->
-  <div class="logo">
+  <!-- Header with Logo -->
+  <header>
     <img src="shine.jpeg" alt="Shine Logo">
-  </div>
+    <h1>Shine</h1>
+    <p>Welcome to the official website of Shine.</p>
+  </header>
 
-  <h1>Shine</h1>
-  <p>Welcome to the official website of Shine.</p>
+  <!-- Apps Section -->
+  <section>
+    <h2>Our Apps</h2>
+    <ul>
+      <li><a href="https://play.google.com/store/apps/details?id=com.shine.playnest" target="_blank">Play Nest</a></li>
+      <!-- Add more apps here -->
+    </ul>
+  </section>
 
-  <h2>Our Apps</h2>
-  <ul>
-    <li><a href="https://play.google.com/store/apps/details?id=com.shine.playnest" target="_blank">Play Nest</a></li>
-    <!-- Add more apps here -->
-  </ul>
+  <!-- Important Links -->
+  <section>
+    <h2>Important Links</h2>
+    <ul>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="delete.html">Delete Account</a></li>
+    </ul>
+  </section>
 
-  <h2>Important Links</h2>
-  <ul>
-    <li><a href="privacy.html">Privacy Policy</a></li>
-    <li><a href="delete.html">Delete Account</a></li>
-  </ul>
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Shine. All rights reserved.</p>
+  </footer>
 </body>
 </html>
