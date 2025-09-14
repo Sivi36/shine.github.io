@@ -15,13 +15,19 @@
     body {
       background: #121212;
       color: #fff;
+      scroll-behavior: smooth;
     }
+
+    /* Navbar */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px 60px;
       background: #1c1c1c;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
     .logo img {
       width: 50px;
@@ -44,12 +50,15 @@
     nav ul li a:hover {
       color: #ff3366;
     }
+
+    /* Hero */
     .hero {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 60px 10%;
       gap: 40px;
+      flex-wrap: wrap;
     }
     .hero-text {
       max-width: 600px;
@@ -85,6 +94,18 @@
     .hero-text .btn:hover {
       background: #ff0055;
     }
+    .hero-img {
+      flex: 0.8;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .hero-img img {
+      width: 280px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255,51,102,0.5);
+    }
+
     /* Quote Section */
     .quote {
       margin-top: 30px;
@@ -106,10 +127,10 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-image: url("leaders.jpg"); /* both Abdul Kalam + Ratan Tata in one */
+      background-image: url("leaders.jpg"); /* Abdul Kalam + Ratan Tata */
       background-size: cover;
       background-position: center 20%;
-      opacity: 0.08; /* light faded */
+      opacity: 0.08;
       filter: grayscale(100%);
     }
     .quote p,
@@ -124,17 +145,58 @@
       color: #ffcc00;
       text-align: right;
     }
-    .hero-img {
-      flex: 0.8;
+
+    /* Apps Section */
+    #apps {
+      padding: 60px 10%;
+    }
+    #apps h2 {
+      text-align: center;
+      color: #ff3366;
+      margin-bottom: 50px;
+      font-size: 36px;
+    }
+    .apps-container {
       display: flex;
-      justify-content: flex-end;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
     }
-    .hero-img img {
-      width: 280px;
-      height: auto;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(255,51,102,0.5);
+    .app-card {
+      background: #1c1c1c;
+      padding: 20px;
+      border-radius: 12px;
+      width: 220px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255,51,102,0.3);
+      transition: transform 0.3s;
     }
+    .app-card img {
+      width: 100px;
+      border-radius: 16px;
+      margin-bottom: 15px;
+    }
+    .app-card h3 {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .app-card a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #ff3366;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .app-card a:hover {
+      background: #ff0055;
+    }
+    .app-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Footer */
     footer {
       background: #1c1c1c;
       text-align: center;
@@ -143,9 +205,25 @@
       font-size: 14px;
       color: #aaa;
     }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-img {
+        justify-content: center;
+        margin-top: 20px;
+      }
+      .hero-img img {
+        width: 200px;
+      }
+    }
   </style>
 </head>
 <body>
+
   <!-- Navbar -->
   <header>
     <div class="logo">
@@ -154,7 +232,7 @@
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="https://play.google.com/store/apps/details?id=com.shine.playnest" target="_blank">Apps</a></li>
+        <li><a href="#apps">Apps</a></li>
         <li><a href="privacy.html">Privacy Policy</a></li>
         <li><a href="delete.html">Delete Account</a></li>
         <li><a href="mailto:shinedeveloper2@gmail.com">Contact</a></li>
@@ -170,7 +248,6 @@
       <p>I am the one who doesn’t care about failure.<br>AI is our servant.</p>
       <a href="https://play.google.com/store/apps/details?id=com.shine.playnest" target="_blank" class="btn">Get My App</a>
 
-      <!-- Abdul Kalam & Ratan Tata Quote -->
       <div class="quote">
         <p>“If you want to shine like a sun, first burn like a sun.”</p>
         <span>— A.P.J. Abdul Kalam</span>
@@ -182,9 +259,32 @@
     </div>
   </section>
 
+  <!-- Apps Section -->
+  <section id="apps">
+    <h2>My Apps</h2>
+    <div class="apps-container">
+      <!-- App 1 -->
+      <div class="app-card">
+        <img src="playnest-icon.jpeg" alt="Play Nest">
+        <h3>Play Nest</h3>
+        <a href="https://play.google.com/store/apps/details?id=com.shine.playnest" target="_blank">Download</a>
+      </div>
+
+      <!-- App 2 -->
+      <div class="app-card">
+        <img src="app2-icon.jpeg" alt="App 2">
+        <h3>App 2</h3>
+        <a href="https://play.google.com/store/apps/details?id=com.shine.app2" target="_blank">Download</a>
+      </div>
+
+      <!-- Add more apps similarly -->
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer>
     <p>© 2025 Shine | Built by Sivi</p>
   </footer>
+
 </body>
 </html>
