@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="shine.jpeg">
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
-    body { background:#121212; color:#eee; line-height:1.6; }
+    html, body { height:100%; display:flex; flex-direction:column; background:#121212; color:#eee; line-height:1.6; }
 
     /* Navbar */
     header { display:flex; justify-content:space-between; align-items:center; padding:20px 60px; background:#1c1c1c; position:sticky; top:0; z-index:10; }
@@ -17,14 +17,16 @@
     nav ul li a { text-decoration:none; color:#ddd; font-weight:bold; transition:0.3s; }
     nav ul li a:hover, nav ul li a.active { color:#ff3366; }
 
-    main { max-width:800px; margin:80px auto; padding:40px; background:#1c1c1c; border-radius:12px; box-shadow:0 0 20px rgba(255,51,102,0.3); }
+    /* Main Content */
+    main { max-width:800px; margin:60px auto; padding:40px; background:#1c1c1c; border-radius:12px; box-shadow:0 0 20px rgba(255,51,102,0.3); flex:1; }
     h1 { font-size:36px; color:#ff3366; margin-bottom:20px; text-align:center; }
     h2 { color:#ffcc00; margin-bottom:15px; }
     p { margin-bottom:20px; }
     a { color:#ff3366; text-decoration:none; }
     a:hover { text-decoration:underline; }
 
-    footer { background:#1c1c1c; text-align:center; padding:20px; margin-top:50px; font-size:14px; color:#aaa; }
+    /* Footer */
+    footer { background:#1c1c1c; text-align:center; padding:20px; font-size:14px; color:#aaa; }
 
     @media (max-width:900px) {
       header { flex-direction:column; gap:15px; }
@@ -68,7 +70,7 @@
 
   <!-- Footer -->
   <footer>
-    © 2025 Shine | Privacy Policy
+    © 2025 Shine | Built by Sivi
   </footer>
 
 </body>
