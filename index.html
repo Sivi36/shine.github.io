@@ -85,6 +85,7 @@
     .hero-text .btn:hover {
       background: #ff0055;
     }
+    /* Quote Section */
     .quote {
       margin-top: 30px;
       font-style: italic;
@@ -92,9 +93,29 @@
       color: #fff;
       background: #1c1c1c;
       border-left: 4px solid #ffcc00;
-      padding: 16px 20px;
+      padding: 40px 20px;
       border-radius: 8px;
+      position: relative;
+      overflow: hidden;
       box-shadow: 0 0 12px rgba(255, 204, 0, 0.3);
+    }
+    .quote::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("leaders.jpg"); /* both Abdul Kalam + Ratan Tata in one */
+      background-size: cover;
+      background-position: center;
+      opacity: 0.08; /* light faded */
+      filter: grayscale(100%);
+    }
+    .quote p,
+    .quote span {
+      position: relative;
+      z-index: 1;
     }
     .quote span {
       display: block;
@@ -149,9 +170,9 @@
       <p>I am the one who doesn’t care about failure.<br>AI is our servant.</p>
       <a href="https://play.google.com/store/apps/details?id=com.shine.playnest" target="_blank" class="btn">Get My App</a>
 
-      <!-- Abdul Kalam Quote -->
+      <!-- Abdul Kalam & Ratan Tata Quote -->
       <div class="quote">
-        “If you want to shine like a sun, first burn like a sun.”  
+        <p>“If you want to shine like a sun, first burn like a sun.”</p>
         <span>— A.P.J. Abdul Kalam</span>
       </div>
     </div>
