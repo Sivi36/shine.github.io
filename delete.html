@@ -16,12 +16,16 @@
       background: #121212;
       color: #fff;
     }
+    /* Navbar */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px 60px;
       background: #1c1c1c;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
     .logo img {
       width: 50px;
@@ -44,26 +48,30 @@
     nav ul li a:hover {
       color: #ff3366;
     }
+    nav ul li a.active {
+      color: #ff3366;
+    }
+
+    /* Container */
     .container {
       max-width: 800px;
-      margin: 60px auto;
+      margin: 80px auto;
       background: #1c1c1c;
       padding: 40px;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(255,51,102,0.3);
+      text-align: center;
     }
     h1 {
       font-size: 36px;
       color: #ff3366;
       margin-bottom: 20px;
-      text-align: center;
     }
     p {
       font-size: 18px;
       line-height: 1.6;
       margin-bottom: 20px;
       color: #ddd;
-      text-align: center;
     }
     a.email-link {
       display: inline-block;
@@ -77,6 +85,8 @@
     a.email-link:hover {
       background: #ff0055;
     }
+
+    /* Footer */
     footer {
       background: #1c1c1c;
       text-align: center;
@@ -85,9 +95,16 @@
       font-size: 14px;
       color: #aaa;
     }
+
+    @media (max-width:900px) {
+      header { flex-direction: column; gap: 15px; }
+      nav ul { flex-direction: column; gap: 10px; }
+      .container { margin: 40px 20px; padding: 30px; }
+    }
   </style>
 </head>
 <body>
+
   <!-- Navbar -->
   <header>
     <div class="logo">
@@ -96,10 +113,12 @@
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="https://play.google.com/store/apps/details?id=com.shine.playnest" target="_blank">Apps</a></li>
+        <li><a href="apps.html">Apps</a></li>
         <li><a href="privacy.html">Privacy Policy</a></li>
         <li><a href="delete.html" class="active">Delete Account</a></li>
-        <li><a href="mailto:shinedeveloper2@gmail.com">Contact</a></li>
+        <li>
+          <a href="mailto:shinedeveloper2@gmail.com?subject=Hello%20Sivi&body=Hi%20Sivi,%0A%0AI%20want%20to%20contact%20you..." target="_blank">Contact</a>
+        </li>
       </ul>
     </nav>
   </header>
@@ -116,5 +135,6 @@
   <footer>
     <p>© 2025 Shine | Built by Sivi</p>
   </footer>
+
 </body>
 </html>
