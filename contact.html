@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Shine</title>
+  <link rel="icon" type="image/png" href="shine.jpeg">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+    body { background:#121212; color:#fff; }
+
+    header { display:flex; justify-content:space-between; align-items:center; padding:20px 60px; background:#1c1c1c; position:sticky; top:0; z-index:10; }
+    .logo img { width:50px; height:50px; border-radius:50%; }
+    nav ul { display:flex; list-style:none; }
+    nav ul li { margin-left:20px; }
+    nav ul li a { text-decoration:none; color:#ddd; font-weight:bold; transition:0.3s; }
+    nav ul li a:hover { color:#ff3366; }
+    nav ul li a.active { color:#ff3366; }
+
+    .container { max-width:800px; margin:80px auto; background:#1c1c1c; padding:40px; border-radius:12px; box-shadow:0 0 20px rgba(255,51,102,0.3); text-align:center; }
+    h1 { font-size:36px; color:#ff3366; margin-bottom:20px; }
+    p { font-size:18px; line-height:1.6; margin-bottom:20px; color:#ddd; }
+    a.email-link { display:inline-block; padding:12px 24px; background:#ff3366; color:#fff; text-decoration:none; border-radius:8px; transition:0.3s; }
+    a.email-link:hover { background:#ff0055; }
+
+    footer { background:#1c1c1c; text-align:center; padding:20px; margin-top:50px; font-size:14px; color:#aaa; }
+
+    @media (max-width:900px) {
+      header { flex-direction:column; gap:15px; }
+      nav ul { flex-direction:column; gap:10px; }
+      .container { margin:40px 20px; padding:30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="shine.jpeg" alt="Shine Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="apps.html">Apps</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="delete.html">Delete Account</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Contact Me</h1>
+    <p>If you want to get in touch, send me an email at:</p>
+    <p>
+      <a href="mailto:shinedeveloper2@gmail.com?subject=Hello%20Sivi&body=Hi%20Sivi,%0A%0AI%20want%20to%20contact%20you" class="email-link">shinedeveloper2@gmail.com</a>
+    </p>
+  </div>
+
+  <footer>
+    <p>© 2025 Shine | Built by Sivi</p>
+  </footer>
+
+</body>
+</html>
