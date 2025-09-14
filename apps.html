@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Apps - Shine</title>
+  <link rel="icon" type="image/png" href="shine.jpeg">
+  <style>
+    body { background:#121212; color:#fff; font-family: Arial, sans-serif; margin:0; }
+    header, footer { background:#1c1c1c; padding:20px; text-align:center; }
+    nav ul { display:flex; list-style:none; justify-content:center; gap:20px; }
+    nav ul li a { color:#ddd; text-decoration:none; font-weight:bold; }
+    nav ul li a:hover { color:#ff3366; }
+    h1 { text-align:center; color:#ff3366; margin:40px 0; }
+    .apps-container { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; padding:0 20px; }
+    .app-card { background:#1c1c1c; padding:20px; border-radius:12px; width:220px; text-align:center; box-shadow:0 0 20px rgba(255,51,102,0.3); transition:0.3s; }
+    .app-card img { width:100px; border-radius:16px; margin-bottom:15px; }
+    .app-card h3 { margin-bottom:10px; color:#fff; }
+    .app-card a { display:inline-block; padding:10px 20px; background:#ff3366; color:#fff; border-radius:8px; text-decoration:none; }
+    .app-card a:hover { background:#ff0055; }
+    .app-card:hover { transform:translateY(-5px); }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="apps.html">Apps</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="delete.html">Delete Account</a></li>
+      <li><a href="mailto:shinedeveloper2@gmail.com" target="_blank">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<h1>My Apps</h1>
+<div class="apps-container">
+  <!-- App 1 -->
+  <div class="app-card">
+    <img src="playnest-icon.jpeg" alt="Play Nest">
+    <h3>Play Nest</h3>
+    <a href="https://play.google.com/store/apps/details?id=com.shine.playnest" target="_blank">Download</a>
+  </div>
+  <!-- App 2 -->
+  <div class="app-card">
+    <img src="app2-icon.jpeg" alt="App 2">
+    <h3>App 2</h3>
+    <a href="https://play.google.com/store/apps/details?id=com.shine.app2" target="_blank">Download</a>
+  </div>
+  <!-- Add more apps as needed -->
+</div>
+
+<footer>
+  <p>© 2025 Shine | Built by Sivi</p>
+</footer>
+
+</body>
+</html>
