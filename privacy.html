@@ -6,58 +6,54 @@
   <title>Privacy Policy - Shine</title>
   <link rel="icon" type="image/png" href="shine.jpeg">
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #121212;
-      color: #eee;
-      line-height: 1.6;
-    }
-    header {
-      background: #1c1c1c;
-      padding: 20px;
-      text-align: center;
-      border-bottom: 2px solid #ff3366;
-    }
-    header h1 {
-      margin: 0;
-      color: #ff3366;
-    }
-    main {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #1e1e1e;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.5);
-    }
-    main h2 {
-      color: #ffcc00;
-      margin-bottom: 15px;
-    }
-    a {
-      color: #ff3366;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      margin-top: 50px;
-      padding: 15px;
-      text-align: center;
-      background: #1c1c1c;
-      color: #aaa;
-      font-size: 14px;
+    * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+    body { background:#121212; color:#eee; line-height:1.6; }
+
+    /* Navbar */
+    header { display:flex; justify-content:space-between; align-items:center; padding:20px 60px; background:#1c1c1c; position:sticky; top:0; z-index:10; }
+    .logo img { width:50px; height:50px; border-radius:50%; }
+    nav ul { display:flex; list-style:none; }
+    nav ul li { margin-left:20px; }
+    nav ul li a { text-decoration:none; color:#ddd; font-weight:bold; transition:0.3s; }
+    nav ul li a:hover, nav ul li a.active { color:#ff3366; }
+
+    main { max-width:800px; margin:80px auto; padding:40px; background:#1c1c1c; border-radius:12px; box-shadow:0 0 20px rgba(255,51,102,0.3); }
+    h1 { font-size:36px; color:#ff3366; margin-bottom:20px; text-align:center; }
+    h2 { color:#ffcc00; margin-bottom:15px; }
+    p { margin-bottom:20px; }
+    a { color:#ff3366; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+
+    footer { background:#1c1c1c; text-align:center; padding:20px; margin-top:50px; font-size:14px; color:#aaa; }
+
+    @media (max-width:900px) {
+      header { flex-direction:column; gap:15px; }
+      nav ul { flex-direction:column; gap:10px; }
+      main { margin:40px 20px; padding:30px; }
     }
   </style>
 </head>
 <body>
+
+  <!-- Navbar -->
   <header>
-    <h1>Privacy Policy</h1>
+    <div class="logo">
+      <img src="shine.jpeg" alt="Shine Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="apps.html">Apps</a></li>
+        <li><a href="privacy.html" class="active">Privacy Policy</a></li>
+        <li><a href="delete.html">Delete Account</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
+  <!-- Main Content -->
   <main>
+    <h1>Privacy Policy</h1>
     <h2>Your Privacy Matters</h2>
     <p>At <strong>Shine</strong>, we respect your privacy. Our apps collect only the data necessary 
        to provide core functionality. We do <strong>not</strong> sell or share your personal 
@@ -67,11 +63,13 @@
        personally identifiable information.</p>
 
     <p>If you have any questions, please contact us at:  
-       <a href="mailto:shinedeveloper2@gmail.com">shinedeveloper2@gmail.com</a></p>
+       <a href="mailto:shinedeveloper2@gmail.com?subject=Privacy%20Policy%20Inquiry&body=Hi%20Sivi," class="email-link">shinedeveloper2@gmail.com</a></p>
   </main>
 
+  <!-- Footer -->
   <footer>
     © 2025 Shine | Privacy Policy
   </footer>
+
 </body>
 </html>
