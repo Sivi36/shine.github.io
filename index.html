@@ -47,12 +47,13 @@
     .hero {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       padding: 60px 10%;
-      gap: 50px;
+      gap: 40px;
     }
     .hero-text {
       max-width: 600px;
+      flex: 1;
     }
     .hero-text h2 {
       font-size: 16px;
@@ -84,8 +85,31 @@
     .hero-text .btn:hover {
       background: #ff0055;
     }
-    .hero img {
-      width: 300px;
+    .quote {
+      margin-top: 30px;
+      font-style: italic;
+      font-size: 18px;
+      color: #fff;
+      background: #1c1c1c;
+      border-left: 4px solid #ffcc00;
+      padding: 16px 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(255, 204, 0, 0.3);
+    }
+    .quote span {
+      display: block;
+      margin-top: 10px;
+      font-size: 16px;
+      color: #ffcc00;
+      text-align: right;
+    }
+    .hero-img {
+      flex: 0.8;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .hero-img img {
+      width: 280px;
       height: auto;
       border-radius: 20px;
       box-shadow: 0 0 20px rgba(255,51,102,0.5);
@@ -124,7 +148,14 @@
       <h1>Hi, I'm <span>Sivi</span><br>a Student.</h1>
       <p>I am the one who doesn’t care about anyone.<br>AI is our servant.</p>
       <a href="https://play.google.com/store/apps/details?id=com.shine.playnest" target="_blank" class="btn">Get My App</a>
+
+      <!-- Abdul Kalam Quote -->
+      <div class="quote">
+        “If you want to shine like a sun, first burn like a sun.”  
+        <span>— A.P.J. Abdul Kalam</span>
+      </div>
     </div>
+
     <div class="hero-img">
       <img src="profile.jpeg" alt="Sivi Profile">
     </div>
