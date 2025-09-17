@@ -14,8 +14,9 @@
     .logo img { width:50px; height:50px; border-radius:50%; }
     nav ul { display:flex; list-style:none; }
     nav ul li { margin-left:20px; }
-    nav ul li a { text-decoration:none; color:#ddd; font-weight:bold; transition:0.3s; }
-    nav ul li a:hover { color:#ff3366; }
+    nav ul li a { text-decoration:none; color:#ddd; font-weight:bold; padding:6px 12px; border-radius:6px; transition:0.3s; }
+    nav ul li a:hover { color:#fff; background:#ff3366; box-shadow:0 0 8px #ff3366; }
+    nav ul li a.active { color:#fff; background:#ff3366; box-shadow:0 0 12px #ff3366; }
 
     /* Hero */
     .hero { display:flex; align-items:center; justify-content:space-between; padding:60px 10%; gap:40px; flex-wrap:wrap; }
@@ -27,13 +28,20 @@
     .hero-text .btn { display:inline-block; padding:12px 24px; margin-top:20px; background:#ff3366; color:#fff; text-decoration:none; border-radius:8px; transition:0.3s; }
     .hero-text .btn:hover { background:#ff0055; }
     .hero-img { flex:0.8; display:flex; justify-content:flex-end; }
-    .hero-img img { width:280px; height:auto; border-radius:20px; box-shadow:0 0 20px rgba(255,51,102,0.5); }
+    .hero-img img { width:280px; height:auto; border-radius:20px; box-shadow:0 0 20px rgba(255,51,102,0.5); transition:0.3s; }
 
     /* Quote */
-    .quote { margin-top:30px; font-style:italic; font-size:18px; color:#fff; background:#1c1c1c; border-left:4px solid #ffcc00; padding:40px 20px; border-radius:8px; position:relative; overflow:hidden; box-shadow:0 0 12px rgba(255,204,0,0.3); }
+    .quote { margin-top:30px; font-style:italic; font-size:18px; color:#fff; background:#1c1c1c; border-left:4px solid #ffcc00; padding:40px 20px; border-radius:8px; position:relative; overflow:hidden; box-shadow:0 0 12px rgba(255,204,0,0.3); transition:0.3s; }
     .quote::before { content:""; position:absolute; top:0; left:0; right:0; bottom:0; background-image:url("leaders.jpg"); background-size:cover; background-position:center 20%; opacity:0.08; filter:grayscale(100%); }
     .quote p, .quote span { position:relative; z-index:1; }
     .quote span { display:block; margin-top:10px; font-size:16px; color:#ffcc00; text-align:right; }
+
+    /* Glow Effect */
+    .glow-trigger { cursor:pointer; transition:0.3s; }
+    .glow-trigger.glow-active {
+      box-shadow:0 0 20px #ff3366, 0 0 40px #ff3366;
+      transform:scale(1.02);
+    }
 
     /* Footer */
     footer { background:#1c1c1c; text-align:center; padding:20px; margin-top:50px; font-size:14px; color:#aaa; }
@@ -55,7 +63,7 @@
     </div>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
         <li><a href="apps.html">Apps</a></li>
         <li><a href="privacy.html">Privacy Policy</a></li>
         <li><a href="delete.html">Delete Account</a></li>
@@ -72,13 +80,15 @@
       <p>I am the one who doesn’t care about failure.<br>AI is our servant.</p>
       <a href="apps.html" class="btn">View My Apps</a>
 
-      <div class="quote">
+      <!-- Quote Glow -->
+      <div class="quote glow-trigger">
         <p>“If you want to shine like a sun, first burn like a sun.”</p>
         <span>— A.P.J. Abdul Kalam</span>
       </div>
     </div>
 
-    <div class="hero-img">
+    <!-- Photo Glow -->
+    <div class="hero-img glow-trigger">
       <img src="profile.jpeg" alt="Sivi Profile">
     </div>
   </section>
@@ -86,6 +96,18 @@
   <footer>
     <p>© 2025 Shine | Built by Sivi</p>
   </footer>
+
+  <!-- Glow Script -->
+  <script>
+    document.querySelectorAll('.glow-trigger').forEach(el => {
+      el.addEventListener('click', () => {
+        el.classList.add('glow-active');
+        setTimeout(() => {
+          el.classList.remove('glow-active');
+        }, 1000); // glow lasts 1s
+      });
+    });
+  </script>
 
 </body>
 </html>
