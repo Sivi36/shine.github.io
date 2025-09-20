@@ -7,61 +7,110 @@
   <link rel="icon" type="image/png" href="shine.jpeg">
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
-    body { background:#121212; color:#fff; min-height:100vh; display:flex; flex-direction:column; }
 
-    /* Top Tab Bar */
-    nav.menu {
+    /* ===== Animated gradient background ===== */
+    body {
+      min-height:100vh;
       display:flex;
-      justify-content:space-around;
-      align-items:center;
-      height:60px;
-      background:#181818;
-      width:100%;
-      max-width:800px;
-      margin:20px auto;
-      border-radius:10px;
+      flex-direction:column;
+      color:#fff;
+      scroll-behavior:smooth;
       position:relative;
+      overflow-x:hidden;
+      background: linear-gradient(270deg, #121212, #1a1a2e, #121212);
+      background-size: 600% 600%;
+      animation: gradientBG 15s ease infinite;
     }
 
-    nav.menu a {
+    @keyframes gradientBG {
+      0% { background-position:0% 50%; }
+      50% { background-position:100% 50%; }
+      100% { background-position:0% 50%; }
+    }
+
+    /* ===== Floating particles ===== */
+    .particles {
+      position: fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      z-index:0;
+      overflow:hidden;
+    }
+
+    .particles span {
+      position:absolute;
+      display:block;
+      width:10px;
+      height:10px;
+      background: rgba(255,255,255,0.1);
+      border-radius:50%;
+      animation: float 10s linear infinite;
+    }
+
+    .particles span:nth-child(1){ left:10%; animation-duration:12s; }
+    .particles span:nth-child(2){ left:20%; animation-duration:15s; }
+    .particles span:nth-child(3){ left:30%; animation-duration:18s; }
+    .particles span:nth-child(4){ left:40%; animation-duration:10s; }
+    .particles span:nth-child(5){ left:50%; animation-duration:14s; }
+    .particles span:nth-child(6){ left:60%; animation-duration:16s; }
+    .particles span:nth-child(7){ left:70%; animation-duration:13s; }
+    .particles span:nth-child(8){ left:80%; animation-duration:17s; }
+    .particles span:nth-child(9){ left:90%; animation-duration:11s; }
+    .particles span:nth-child(10){ left:95%; animation-duration:19s; }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(0.5); opacity:0; }
+      50% { opacity:0.4; }
+      100% { transform: translateY(-10vh) scale(1); opacity:0; }
+    }
+
+    /* ===== Main Delete Section ===== */
+    main {
+      max-width:800px;
+      margin:40px auto;
+      padding:40px;
+      background:#1c1c1c;
+      border-radius:12px;
+      box-shadow:0 0 20px rgba(255,51,102,0.3);
+      flex:1;
+      text-align:center;
       position:relative;
-      padding:10px 20px;
-      color:#b0bfd8;
+      z-index:1;
+    }
+
+    h1 { font-size:36px; color:#ff3366; margin-bottom:20px; }
+    p { font-size:18px; line-height:1.6; margin-bottom:20px; color:#ddd; }
+    a.email-link {
+      display:inline-block;
+      padding:12px 24px;
+      background:#ff3366;
+      color:#fff;
       text-decoration:none;
       border-radius:8px;
       transition:0.3s;
     }
-    nav.menu a:hover { color:#fff; }
-
-    /* Glow behind active tab */
-    nav.menu a.active::before {
-      content:"";
-      position:absolute; top:0; left:0; right:0; bottom:0;
-      border-radius:8px;
-      z-index:-1;
-      transition:0.3s;
-    }
-
-    nav.menu a.home.active::before { background:#39a1f4; box-shadow:0 0 20px 5px rgba(57,161,244,0.5); }
-    nav.menu a.apps.active::before { background:#f48d4e; box-shadow:0 0 20px 5px rgba(244,141,78,0.5); }
-    nav.menu a.privacy.active::before { background:#84a91c; box-shadow:0 0 20px 5px rgba(132,169,28,0.5); }
-    nav.menu a.delete.active::before { background:#ff6275; box-shadow:0 0 20px 5px rgba(255,98,117,0.5); }
-    nav.menu a.contact.active::before { background:#9d74ff; box-shadow:0 0 20px 5px rgba(157,116,255,0.5); }
-
-    @media (max-width:650px) { nav.menu a { font-size:14px; padding:8px 15px; } }
-
-    main { max-width:800px; margin:40px auto; padding:40px; background:#1c1c1c; border-radius:12px; box-shadow:0 0 20px rgba(255,51,102,0.3); flex:1; text-align:center; }
-    h1 { font-size:36px; color:#ff3366; margin-bottom:20px; }
-    p { font-size:18px; line-height:1.6; margin-bottom:20px; color:#ddd; }
-    a.email-link { display:inline-block; padding:12px 24px; background:#ff3366; color:#fff; text-decoration:none; border-radius:8px; transition:0.3s; }
     a.email-link:hover { background:#ff0055; }
 
-    footer { background:#1c1c1c; text-align:center; padding:20px; font-size:14px; color:#aaa; }
+    footer {
+      background:#1c1c1c;
+      text-align:center;
+      padding:20px;
+      font-size:14px;
+      color:#aaa;
+      position:relative;
+      z-index:1;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Top Tab Bar -->
+  <!-- Floating Particles -->
+  <div class="particles">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <!-- Top Tab Bar (unchanged) -->
   <nav class="menu">
     <a href="index.html" class="tab home">Home</a>
     <a href="apps.html" class="tab apps">Apps</a>
