@@ -8,9 +8,8 @@
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
 
-    /* ===== Body with animated gradient ===== */
     body {
-      min-height: 100vh;
+      min-height:100vh;
       display:flex;
       flex-direction:column;
       color:#fff;
@@ -23,12 +22,11 @@
     }
 
     @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% { background-position:0% 50%; }
+      50% { background-position:100% 50%; }
+      100% { background-position:0% 50%; }
     }
 
-    /* ===== Floating particles ===== */
     .particles {
       position: fixed;
       top:0; left:0;
@@ -64,7 +62,6 @@
       100% { transform: translateY(-10vh) scale(1); opacity:0; }
     }
 
-    /* ===== Top Tab Bar with Glow ===== */
     nav.menu {
       display:flex;
       justify-content:space-around;
@@ -88,7 +85,6 @@
       transition:0.3s;
       z-index:1;
     }
-
     nav.menu a:hover { color:#fff; }
 
     nav.menu a.active::before {
@@ -106,45 +102,52 @@
     nav.menu a.delete.active::before { background:#ff6275; box-shadow:0 0 20px 5px rgba(255,98,117,0.5); }
     nav.menu a.contact.active::before { background:#9d74ff; box-shadow:0 0 20px 5px rgba(157,116,255,0.5); }
 
-    @media (max-width:650px) { nav.menu a { font-size:14px; padding:8px 15px; } }
-
-    /* ===== Main content ===== */
-    main { flex:1; padding:40px 20px; position:relative; z-index:1; }
-    h1 { text-align:center; color:#ff3366; margin:40px 0; }
-
-    .apps-container { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
-    .app-card { 
-      background:#1c1c1c; 
-      padding:20px; 
-      border-radius:12px; 
-      width:220px; 
-      text-align:center; 
-      box-shadow:0 0 20px rgba(255,51,102,0.3); 
-      transition:0.3s; 
+    main {
+      max-width:600px;
+      margin:40px auto;
+      padding:40px;
+      background:#1c1c1c;
+      border-radius:12px;
+      box-shadow:0 0 20px rgba(255,51,102,0.3);
+      flex:1;
+      text-align:center;
+      position:relative;
+      z-index:1;
     }
-    .app-card img { width:100px; border-radius:16px; margin-bottom:15px; }
-    .app-card h3 { margin-bottom:10px; color:#fff; }
-    .app-card a { display:inline-block; padding:10px 20px; background:#ff3366; color:#fff; border-radius:8px; text-decoration:none; }
-    .app-card a:hover { background:#ff0055; }
-    .app-card:hover { transform:translateY(-5px); box-shadow:0 0 25px rgba(255,51,102,0.5); }
 
-    footer { background:#1c1c1c; text-align:center; padding:20px; font-size:14px; color:#aaa; position:relative; z-index:1; }
+    h1 { font-size:36px; color:#ff3366; margin-bottom:20px; }
+    p { font-size:18px; line-height:1.6; margin-bottom:30px; color:#ddd; }
+    a.app-link {
+      display:block;
+      padding:12px 24px;
+      margin:10px auto;
+      width:220px;
+      background:#f48d4e;
+      color:#fff;
+      text-decoration:none;
+      border-radius:8px;
+      transition:0.3s;
+    }
+    a.app-link:hover { background:#ff7a42; }
 
-    @media (max-width:600px) {
-      .apps-container { flex-direction:column; align-items:center; }
-      .app-card { width:80%; }
+    footer {
+      background:#1c1c1c;
+      text-align:center;
+      padding:20px;
+      font-size:14px;
+      color:#aaa;
+      position:relative;
+      z-index:1;
     }
   </style>
 </head>
 <body>
 
-  <!-- Floating Particles -->
   <div class="particles">
     <span></span><span></span><span></span><span></span><span></span>
     <span></span><span></span><span></span><span></span><span></span>
   </div>
 
-  <!-- Top Tab Bar -->
   <nav class="menu">
     <a href="index.html" class="tab home">Home</a>
     <a href="apps.html" class="tab apps active">Apps</a>
@@ -155,20 +158,9 @@
 
   <main>
     <h1>My Apps</h1>
-    <div class="apps-container">
-      <!-- App 1 -->
-      <div class="app-card">
-        <img src="playnest-icon.jpeg" alt="Play Nest">
-        <h3>Play Nest</h3>
-        <a href="https://play.google.com/store/apps/details?id=com.shine.playnest" target="_blank">Download</a>
-      </div>
-      <!-- App 2 -->
-      <div class="app-card">
-        <img src="app2-icon.jpeg" alt="CalMat">
-        <h3>CalMat</h3>
-        <a href="https://play.google.com/store/apps/details?id=com.shine.calmat" target="_blank">Download</a>
-      </div>
-    </div>
+    <p>Download our apps below. Click the button to go to Google Play Store.</p>
+    <a href="https://play.google.com/store/apps/details?id=com.shine.playnest" target="_blank" class="app-link">Play Nest</a>
+    <a href="https://play.google.com/store/apps/details?id=com.shine.calmat" target="_blank" class="app-link">CalMat</a>
   </main>
 
   <footer>
