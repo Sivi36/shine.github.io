@@ -9,7 +9,7 @@
     * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
     body { background:#121212; color:#fff; scroll-behavior:smooth; min-height:100vh; display:flex; flex-direction:column; }
 
-    /***** TOP TAB BAR NO UNDERLINE *****/
+    /***** TOP TAB BAR WITH UNDERLINE (NO CIRCLE) *****/
     :root { --icon:#b0bfd8; }
 
     nav.menu {
@@ -22,6 +22,7 @@
       max-width:800px;
       margin:0 auto;
       border-radius:10px;
+      position:relative;
     }
 
     nav.menu input { display:none; }
@@ -32,11 +33,26 @@
       color:var(--icon);
       transition: color 0.3s;
       padding:10px 15px;
+      position:relative;
     }
 
     nav.menu label:hover { color:#fff; }
 
-    nav.menu input:checked + label { color:#ff3366; }
+    /* Active tab: color + underline */
+    nav.menu input:checked + label {
+      color:#ff3366;
+    }
+
+    nav.menu input:checked + label::after {
+      content:"";
+      position:absolute;
+      bottom:0;
+      left:10px;
+      right:10px;
+      height:3px;
+      background:#ff3366;
+      border-radius:2px;
+    }
 
     @media (max-width:650px) {
       nav.menu label { font-size:14px; padding:8px 10px; }
@@ -73,7 +89,7 @@
 </head>
 <body>
 
-  <!-- Clean Top Tab Bar -->
+  <!-- Top Tab Bar -->
   <nav class="menu">
     <input type="radio" name="nav-item" id="m-home" checked><label for="m-home">Home</label>
     <input type="radio" name="nav-item" id="m-apps"><label for="m-apps">Apps</label>
