@@ -1,123 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Iconic Tab Bar | Rectangle Selector</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sivi - Official Portfolio</title>
+  <link rel="icon" type="image/png" href="shine.jpeg">
   <style>
-    :root {
-      --home: #39a1f4;
-      --search: #f48d4e;
-      --notification: #84a91c;
-      --favorites: #ff6275;
-      --profile: #9d74ff;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+    body { background:#121212; color:#fff; scroll-behavior:smooth; min-height:100vh; display:flex; flex-direction:column; }
 
-    body {
-      margin:0;
-      font-family:sans-serif;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      height:100vh;
-      background:#121212;
-    }
-
+    /***** TOP TAB BAR WITH RECTANGLE HIGHLIGHT COLORS *****/
     nav.menu {
       display:flex;
-      justify-content:space-between;
+      justify-content:space-around;
       align-items:center;
+      height:60px;
       background:#181818;
-      width:600px;
-      padding:10px 20px;
-      border-radius:12px;
+      width:100%;
+      max-width:800px;
+      margin:0 auto;
+      border-radius:10px;
       position:relative;
     }
 
-    nav.menu input {
-      display:none;
-    }
+    nav.menu input { display:none; }
 
     nav.menu label {
-      position:relative;
-      padding:10px 20px;
-      color:#b0bfd8;
       cursor:pointer;
+      font-size:16px;
+      color:#b0bfd8;
       transition: color 0.3s;
+      padding:10px 20px;
       border-radius:8px;
+      position:relative;
       z-index:1;
     }
 
-    nav.menu label:hover {
+    nav.menu label:hover { color:#fff; }
+
+    /* Rectangle highlight for active tab per tab color */
+    nav.menu input:checked + label {
       color:#fff;
     }
 
-    /* rectangle selector */
-    .selector {
+    nav.menu input:checked + label[for="m-home"]::before {
+      content:"";
       position:absolute;
-      height:100%;
-      width:0;
       top:0;
       left:0;
-      background:#fff;
+      right:0;
+      bottom:0;
+      background:#39a1f4;
       border-radius:8px;
-      transition:0.3s all ease;
-      z-index:0;
+      z-index:-1;
+      transition:0.3s;
     }
 
-    /* move selector based on checked input */
-    #m-home:checked ~ .selector {
+    nav.menu input:checked + label[for="m-apps"]::before {
+      content:"";
+      position:absolute;
+      top:0;
       left:0;
-      width: calc(100% / 5);
-      background: var(--home);
-    }
-    #m-search:checked ~ .selector {
-      left: calc(100% / 5 * 1);
-      width: calc(100% / 5);
-      background: var(--search);
-    }
-    #m-notification:checked ~ .selector {
-      left: calc(100% / 5 * 2);
-      width: calc(100% / 5);
-      background: var(--notification);
-    }
-    #m-favorites:checked ~ .selector {
-      left: calc(100% / 5 * 3);
-      width: calc(100% / 5);
-      background: var(--favorites);
-    }
-    #m-profile:checked ~ .selector {
-      left: calc(100% / 5 * 4);
-      width: calc(100% / 5);
-      background: var(--profile);
+      right:0;
+      bottom:0;
+      background:#f48d4e;
+      border-radius:8px;
+      z-index:-1;
+      transition:0.3s;
     }
 
-    /* active label text color */
-    #m-home:checked + label,
-    #m-search:checked + label,
-    #m-notification:checked + label,
-    #m-favorites:checked + label,
-    #m-profile:checked + label {
-      color:#fff;
+    nav.menu input:checked + label[for="m-privacy"]::before {
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      background:#84a91c;
+      border-radius:8px;
+      z-index:-1;
+      transition:0.3s;
     }
 
-    nav.menu label {
-      flex:1;
-      text-align:center;
+    nav.menu input:checked + label[for="m-delete"]::before {
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      background:#ff6275;
+      border-radius:8px;
+      z-index:-1;
+      transition:0.3s;
     }
 
+    nav.menu input:checked + label[for="m-contact"]::before {
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      background:#9d74ff;
+      border-radius:8px;
+      z-index:-1;
+      transition:0.3s;
+    }
+
+    @media (max-width:650px) {
+      nav.menu label { font-size:14px; padding:8px 15px; }
+    }
+
+    /* Hero */
+    .hero { display:flex; align-items:center; justify-content:space-between; padding:60px 10%; gap:40px; flex-wrap:wrap; }
+    .hero-text { max-width:600px; flex:1; }
+    .hero-text h2 { font-size:16px; letter-spacing:2px; color:#bbb; }
+    .hero-text h1 { font-size:50px; margin:20px 0; }
+    .hero-text h1 span { color:#ff3366; }
+    .hero-text p { margin:20px 0; color:#aaa; line-height:1.6; }
+    .hero-text .btn { display:inline-block; padding:12px 24px; margin-top:20px; background:#ff3366; color:#fff; text-decoration:none; border-radius:8px; transition:0.3s; }
+    .hero-text .btn:hover { background:#ff0055; }
+    .hero-img { flex:0.8; display:flex; justify-content:flex-end; }
+    .hero-img img { width:280px; height:auto; border-radius:20px; box-shadow:0 0 20px rgba(255,51,102,0.5); }
+
+    /* Quote */
+    .quote { margin:30px auto; font-style:italic; font-size:18px; color:#fff; background:#1c1c1c; border-left:4px solid #ffcc00; padding:40px 20px; border-radius:8px; position:relative; overflow:hidden; max-width:800px; box-shadow:0 0 12px rgba(255,204,0,0.3); }
+    .quote::before { content:""; position:absolute; top:0; left:0; right:0; bottom:0; background-image:url("leaders.jpg"); background-size:cover; background-position:center 20%; opacity:0.08; filter:grayscale(100%); }
+    .quote p, .quote span { position:relative; z-index:1; }
+    .quote span { display:block; margin-top:10px; font-size:16px; color:#ffcc00; text-align:right; }
+
+    /* Footer */
+    footer { background:#1c1c1c; text-align:center; padding:20px; margin-top:50px; font-size:14px; color:#aaa; }
+
+    @media (max-width:900px) {
+      .hero { flex-direction:column; text-align:center; }
+      .hero-img { justify-content:center; margin-top:20px; }
+      .hero-img img { width:200px; }
+      .quote span { text-align:center; font-size:14px; }
+    }
   </style>
 </head>
 <body>
 
+  <!-- Top Tab Bar -->
   <nav class="menu">
     <input type="radio" name="nav-item" id="m-home" checked><label for="m-home">Home</label>
-    <input type="radio" name="nav-item" id="m-search"><label for="m-search">Search</label>
-    <input type="radio" name="nav-item" id="m-notification"><label for="m-notification">Notification</label>
-    <input type="radio" name="nav-item" id="m-favorites"><label for="m-favorites">Favorites</label>
-    <input type="radio" name="nav-item" id="m-profile"><label for="m-profile">Profile</label>
-
-    <div class="selector"></div>
+    <input type="radio" name="nav-item" id="m-apps"><label for="m-apps">Apps</label>
+    <input type="radio" name="nav-item" id="m-privacy"><label for="m-privacy">Privacy</label>
+    <input type="radio" name="nav-item" id="m-delete"><label for="m-delete">Delete</label>
+    <input type="radio" name="nav-item" id="m-contact"><label for="m-contact">Contact</label>
   </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2>WELCOME TO MY PAGE</h2>
+      <h1>Hi, I'm <span>Sivi</span><br>a Student.</h1>
+      <p>I am the one who doesn’t care about failure.<br>AI is our servant.</p>
+      <a href="apps.html" class="btn">View My Apps</a>
+
+      <div class="quote">
+        <p>“If you want to shine like a sun, first burn like a sun.”</p>
+        <span>— A.P.J. Abdul Kalam</span>
+      </div>
+    </div>
+
+    <div class="hero-img">
+      <img src="profile.jpeg" alt="Sivi Profile">
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Shine | Built by Sivi</p>
+  </footer>
 
 </body>
 </html>
