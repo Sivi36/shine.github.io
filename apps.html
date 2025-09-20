@@ -23,62 +23,37 @@
       position:relative;
     }
 
-    nav.menu input { display:none; }
-
-    nav.menu label {
-      cursor:pointer;
-      font-size:16px;
-      color:#b0bfd8;
-      transition: color 0.3s;
-      padding:10px 20px;
-      border-radius:8px;
+    nav.menu a {
       position:relative;
-      z-index:1;
+      padding:10px 20px;
+      color:#b0bfd8;
+      text-decoration:none;
+      border-radius:8px;
+      transition:0.3s;
+    }
+    nav.menu a:hover { color:#fff; }
+
+    /* Glow behind active tab */
+    nav.menu a.active::before {
+      content:"";
+      position:absolute; top:0; left:0; right:0; bottom:0;
+      border-radius:8px;
+      z-index:-1;
+      transition:0.3s;
     }
 
-    nav.menu label:hover { color:#fff; }
+    nav.menu a.home.active::before { background:#39a1f4; box-shadow:0 0 20px 5px rgba(57,161,244,0.5); }
+    nav.menu a.apps.active::before { background:#f48d4e; box-shadow:0 0 20px 5px rgba(244,141,78,0.5); }
+    nav.menu a.privacy.active::before { background:#84a91c; box-shadow:0 0 20px 5px rgba(132,169,28,0.5); }
+    nav.menu a.delete.active::before { background:#ff6275; box-shadow:0 0 20px 5px rgba(255,98,117,0.5); }
+    nav.menu a.contact.active::before { background:#9d74ff; box-shadow:0 0 20px 5px rgba(157,116,255,0.5); }
 
-    /* Rectangle glow for active tab per tab color */
-    nav.menu input:checked + label { color:#fff; }
+    @media (max-width:650px) { nav.menu a { font-size:14px; padding:8px 15px; } }
 
-    nav.menu input:checked + label[for="m-home"]::before {
-      content:""; position:absolute; top:0; left:0; right:0; bottom:0;
-      background:#39a1f4; border-radius:8px; z-index:-1;
-      box-shadow:0 0 20px 5px rgba(57,161,244,0.5); transition:0.3s;
-    }
-    nav.menu input:checked + label[for="m-apps"]::before {
-      content:""; position:absolute; top:0; left:0; right:0; bottom:0;
-      background:#f48d4e; border-radius:8px; z-index:-1;
-      box-shadow:0 0 20px 5px rgba(244,141,78,0.5); transition:0.3s;
-    }
-    nav.menu input:checked + label[for="m-privacy"]::before {
-      content:""; position:absolute; top:0; left:0; right:0; bottom:0;
-      background:#84a91c; border-radius:8px; z-index:-1;
-      box-shadow:0 0 20px 5px rgba(132,169,28,0.5); transition:0.3s;
-    }
-    nav.menu input:checked + label[for="m-delete"]::before {
-      content:""; position:absolute; top:0; left:0; right:0; bottom:0;
-      background:#ff6275; border-radius:8px; z-index:-1;
-      box-shadow:0 0 20px 5px rgba(255,98,117,0.5); transition:0.3s;
-    }
-    nav.menu input:checked + label[for="m-contact"]::before {
-      content:""; position:absolute; top:0; left:0; right:0; bottom:0;
-      background:#9d74ff; border-radius:8px; z-index:-1;
-      box-shadow:0 0 20px 5px rgba(157,116,255,0.5); transition:0.3s;
-    }
-
-    @media (max-width:650px) {
-      nav.menu label { font-size:14px; padding:8px 15px; }
-    }
-
-    main {
-      flex:1;
-      padding:40px 20px;
-    }
-
+    main { flex:1; padding:40px 20px; }
     h1 { text-align:center; color:#ff3366; margin:40px 0; }
-    .apps-container { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
 
+    .apps-container { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
     .app-card { 
       background:#1c1c1c; 
       padding:20px; 
@@ -94,13 +69,7 @@
     .app-card a:hover { background:#ff0055; }
     .app-card:hover { transform:translateY(-5px); box-shadow:0 0 25px rgba(255,51,102,0.5); }
 
-    footer {
-      background:#1c1c1c; 
-      text-align:center; 
-      padding:20px; 
-      font-size:14px; 
-      color:#aaa;
-    }
+    footer { background:#1c1c1c; text-align:center; padding:20px; font-size:14px; color:#aaa; }
 
     @media (max-width:600px) {
       .apps-container { flex-direction:column; align-items:center; }
@@ -112,11 +81,11 @@
 
   <!-- Top Tab Bar -->
   <nav class="menu">
-    <input type="radio" name="nav-item" id="m-home"><label for="m-home">Home</label>
-    <input type="radio" name="nav-item" id="m-apps" checked><label for="m-apps">Apps</label>
-    <input type="radio" name="nav-item" id="m-privacy"><label for="m-privacy">Privacy</label>
-    <input type="radio" name="nav-item" id="m-delete"><label for="m-delete">Delete</label>
-    <input type="radio" name="nav-item" id="m-contact"><label for="m-contact">Contact</label>
+    <a href="index.html" class="tab home">Home</a>
+    <a href="apps.html" class="tab apps active">Apps</a>
+    <a href="privacy.html" class="tab privacy">Privacy</a>
+    <a href="delete.html" class="tab delete">Delete</a>
+    <a href="contact.html" class="tab contact">Contact</a>
   </nav>
 
   <main>
@@ -130,7 +99,7 @@
       </div>
       <!-- App 2 -->
       <div class="app-card">
-        <img src="app2-icon.jpeg" alt="App 2">
+        <img src="app2-icon.jpeg" alt="CalMat">
         <h3>App 2</h3>
         <a href="https://play.google.com/store/apps/details?id=com.shine.calmat" target="_blank">Download</a>
       </div>
