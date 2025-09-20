@@ -9,9 +9,7 @@
     * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
     body { background:#121212; color:#fff; scroll-behavior:smooth; min-height:100vh; display:flex; flex-direction:column; }
 
-    /***** TOP TAB BAR WITH RECTANGLE HIGHLIGHT *****/
-    :root { --icon:#b0bfd8; }
-
+    /***** TOP TAB BAR WITH RECTANGLE HIGHLIGHT COLORS *****/
     nav.menu {
       display:flex;
       justify-content:space-around;
@@ -30,7 +28,7 @@
     nav.menu label {
       cursor:pointer;
       font-size:16px;
-      color:var(--icon);
+      color:#b0bfd8;
       transition: color 0.3s;
       padding:10px 20px;
       border-radius:8px;
@@ -40,22 +38,74 @@
 
     nav.menu label:hover { color:#fff; }
 
-    /* Rectangle highlight for active tab */
+    /* Rectangle highlight for active tab per tab color */
     nav.menu input:checked + label {
       color:#fff;
     }
 
-    nav.menu input:checked + label::before {
+    nav.menu input:checked + label[for="m-home"]::before {
       content:"";
       position:absolute;
       top:0;
       left:0;
       right:0;
       bottom:0;
-      background:#ff3366;
+      background:#39a1f4;
       border-radius:8px;
       z-index:-1;
-      transition: 0.3s;
+      transition:0.3s;
+    }
+
+    nav.menu input:checked + label[for="m-apps"]::before {
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      background:#f48d4e;
+      border-radius:8px;
+      z-index:-1;
+      transition:0.3s;
+    }
+
+    nav.menu input:checked + label[for="m-privacy"]::before {
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      background:#84a91c;
+      border-radius:8px;
+      z-index:-1;
+      transition:0.3s;
+    }
+
+    nav.menu input:checked + label[for="m-delete"]::before {
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      background:#ff6275;
+      border-radius:8px;
+      z-index:-1;
+      transition:0.3s;
+    }
+
+    nav.menu input:checked + label[for="m-contact"]::before {
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      background:#9d74ff;
+      border-radius:8px;
+      z-index:-1;
+      transition:0.3s;
     }
 
     @media (max-width:650px) {
