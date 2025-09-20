@@ -9,7 +9,7 @@
     * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
     body { background:#121212; color:#fff; scroll-behavior:smooth; min-height:100vh; display:flex; flex-direction:column; }
 
-    /***** TOP TAB BAR WITH UNDERLINE (NO CIRCLE) *****/
+    /***** TOP TAB BAR WITH RECTANGLE HIGHLIGHT *****/
     :root { --icon:#b0bfd8; }
 
     nav.menu {
@@ -32,30 +32,34 @@
       font-size:16px;
       color:var(--icon);
       transition: color 0.3s;
-      padding:10px 15px;
+      padding:10px 20px;
+      border-radius:8px;
       position:relative;
+      z-index:1;
     }
 
     nav.menu label:hover { color:#fff; }
 
-    /* Active tab: color + underline */
+    /* Rectangle highlight for active tab */
     nav.menu input:checked + label {
-      color:#ff3366;
+      color:#fff;
     }
 
-    nav.menu input:checked + label::after {
+    nav.menu input:checked + label::before {
       content:"";
       position:absolute;
+      top:0;
+      left:0;
+      right:0;
       bottom:0;
-      left:10px;
-      right:10px;
-      height:3px;
       background:#ff3366;
-      border-radius:2px;
+      border-radius:8px;
+      z-index:-1;
+      transition: 0.3s;
     }
 
     @media (max-width:650px) {
-      nav.menu label { font-size:14px; padding:8px 10px; }
+      nav.menu label { font-size:14px; padding:8px 15px; }
     }
 
     /* Hero */
