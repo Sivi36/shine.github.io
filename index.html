@@ -7,18 +7,10 @@
   <link rel="icon" type="image/png" href="shine.jpeg">
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
-    body { background:#121212; color:#fff; scroll-behavior:smooth; }
-
-    /* Navbar */
-    header { display:flex; justify-content:space-between; align-items:center; padding:20px 60px; background:#1c1c1c; position:sticky; top:0; z-index:10; }
-    .logo img { width:50px; height:50px; border-radius:50%; }
-    nav ul { display:flex; list-style:none; }
-    nav ul li { margin-left:20px; }
-    nav ul li a { text-decoration:none; color:#ddd; font-weight:bold; transition:0.3s; }
-    nav ul li a:hover { color:#ff3366; }
+    body { background:#121212; color:#fff; scroll-behavior:smooth; min-height:100vh; display:flex; flex-direction:column; }
 
     /* Hero */
-    .hero { display:flex; align-items:center; justify-content:space-between; padding:60px 10%; gap:40px; flex-wrap:wrap; }
+    .hero { flex:1; display:flex; align-items:center; justify-content:space-between; padding:60px 10%; gap:40px; flex-wrap:wrap; }
     .hero-text { max-width:600px; flex:1; }
     .hero-text h2 { font-size:16px; letter-spacing:2px; color:#bbb; }
     .hero-text h1 { font-size:50px; margin:20px 0; }
@@ -27,42 +19,46 @@
     .hero-text .btn { display:inline-block; padding:12px 24px; margin-top:20px; background:#ff3366; color:#fff; text-decoration:none; border-radius:8px; transition:0.3s; }
     .hero-text .btn:hover { background:#ff0055; }
     .hero-img { flex:0.8; display:flex; justify-content:flex-end; }
-    .hero-img img { width:280px; height:auto; border-radius:20px; box-shadow:0 0 20px rgba(255,51,102,0.5); }
+    .hero-img img { width:280px; border-radius:20px; box-shadow:0 0 20px rgba(255,51,102,0.5); }
 
-    /* Quote */
-    .quote { margin-top:30px; font-style:italic; font-size:18px; color:#fff; background:#1c1c1c; border-left:4px solid #ffcc00; padding:40px 20px; border-radius:8px; position:relative; overflow:hidden; box-shadow:0 0 12px rgba(255,204,0,0.3); }
-    .quote::before { content:""; position:absolute; top:0; left:0; right:0; bottom:0; background-image:url("leaders.jpg"); background-size:cover; background-position:center 20%; opacity:0.08; filter:grayscale(100%); }
-    .quote p, .quote span { position:relative; z-index:1; }
-    .quote span { display:block; margin-top:10px; font-size:16px; color:#ffcc00; text-align:right; }
+    footer { text-align:center; padding:20px; font-size:14px; color:#aaa; }
 
-    /* Footer */
-    footer { background:#1c1c1c; text-align:center; padding:20px; margin-top:50px; font-size:14px; color:#aaa; }
-
-    /* Responsive */
-    @media (max-width:900px) {
-      .hero { flex-direction:column; text-align:center; }
-      .hero-img { justify-content:center; margin-top:20px; }
-      .hero-img img { width:200px; }
+    /******** Tab Bar ********/
+    :root { --icon: #b0bfd8; }
+    nav.menu {
+      display:flex; justify-content:space-between; position:relative;
+      height:100px; padding:0 20px 10px; background:#fff0; align-items:flex-end;
+      width:100%; max-width:600px; margin:0 auto;
     }
+    nav.menu:before {
+      content:""; width:100%; height:100px; background:#181818;
+      position:absolute; left:0; bottom:0; border-radius:20px; z-index:-1;
+      box-shadow:1px 1px 2px 0px #fff;
+    }
+    input { display:none; }
+    label {
+      text-decoration:none; font-size:14px; min-width:80px; height:80px;
+      margin:10px; text-align:center; display:inline-grid; align-items:end;
+      color:#b0bfd8; position:relative; cursor:pointer; transition:0.5s;
+    }
+    label:hover { color:#fff; text-shadow:0 0 5px #fff, 0 0 10px #fff; }
+    input:checked+label { color:#fff; height:90px; }
+    .selector {
+      --hole:#2196f3;
+      width:75px; height:75px; position:absolute; bottom:35px; left:0; z-index:-1;
+      transition:0.5s; border:15px solid #181818; border-radius:50%;
+      background: radial-gradient(circle at 50% 50%,#fff8 20px,#fff0 30px,#fff 35px,#fff0 36px 100%),
+                  radial-gradient(circle at 50% 50%,var(--hole) 0 30px,#fff0 31px 100%),
+                  radial-gradient(circle at 50% 55px,#181818 0 50px,#fff0 51px 100%);
+    }
+    #m-home:checked ~ .selector { left:20px; }
+    #m-apps:checked ~ .selector { left:120px; filter:hue-rotate(200deg); }
+    #m-contact:checked ~ .selector { left:220px; filter:hue-rotate(500deg); }
+    #m-privacy:checked ~ .selector { left:320px; filter:hue-rotate(1000deg); }
+    #m-delete:checked ~ .selector { left:420px; filter:hue-rotate(1600deg); }
   </style>
 </head>
 <body>
-
-  <!-- Navbar -->
-  <header>
-    <div class="logo">
-      <img src="shine.jpeg" alt="Shine Logo">
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="apps.html">Apps</a></li>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="delete.html">Delete Account</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -71,21 +67,36 @@
       <h1>Hi, I'm <span>Sivi</span><br>a Student.</h1>
       <p>I am the one who doesn’t care about failure.<br>AI is our servant.</p>
       <a href="apps.html" class="btn">View My Apps</a>
-
-      <div class="quote">
-        <p>“If you want to shine like a sun, first burn like a sun.”</p>
-        <span>— A.P.J. Abdul Kalam</span>
-      </div>
     </div>
-
     <div class="hero-img">
       <img src="profile.jpeg" alt="Sivi Profile">
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>© 2025 Shine | Built by Sivi</p>
   </footer>
+
+  <!-- Bottom Tab Menu -->
+  <nav class="menu">
+    <input type="radio" name="nav-item" id="m-home" checked>
+    <label for="m-home" onclick="location.href='index.html'">Home</label>
+
+    <input type="radio" name="nav-item" id="m-apps">
+    <label for="m-apps" onclick="location.href='apps.html'">Apps</label>
+
+    <input type="radio" name="nav-item" id="m-contact">
+    <label for="m-contact" onclick="location.href='contact.html'">Contact</label>
+
+    <input type="radio" name="nav-item" id="m-privacy">
+    <label for="m-privacy" onclick="location.href='privacy.html'">Privacy</label>
+
+    <input type="radio" name="nav-item" id="m-delete">
+    <label for="m-delete" onclick="location.href='delete.html'">Delete</label>
+
+    <div class="selector"></div>
+  </nav>
 
 </body>
 </html>
