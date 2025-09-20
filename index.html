@@ -88,24 +88,32 @@
       border-radius:100%;
     }
 
-    .selector:after {
-      content:"";
-      position:absolute;
-      bottom:-60px;
-      width:60px; height:8px;
-      background:#181818;
-      left:calc(50% - 30px);
-      border-radius:5px 5px 15px 15px;
-    }
+    /* Selector adjustments for top placement */
+.selector {
+  --hole:#2196f3;
+  background:
+    radial-gradient(circle at 50% 50%, #fff8 30px, #fff0 45px, #fff 50px, #fff0 50px 100%),
+    radial-gradient(circle at 50% 50%, var(--hole) 0 45px, #fff0 50px 100%),
+    radial-gradient(circle at 50% 75px, #181818 0 70px, #fff0 71px 100%);
+  width: 80px; 
+  height: 80px;
+  position:absolute; 
+  top:80px; /* move selector below the labels */
+  left:0;
+  z-index:-1;
+  transition: all 0.5s cubic-bezier(0.68,-0.55,0.27,1.55);
+  border:15px solid #181818;
+  border-radius:100%;
+}
 
-    nav.menu input:checked ~ .selector:after { box-shadow:0 -17px 35px 6px var(--hole); }
+.selector:after {
+  content:"";
+  position:absolute;
+  top:75px; /* shadow below the selector */
+  width:60px; 
+  height:8px;
+  backg
 
-    /* Move selector */
-    #m-home:checked ~ .selector { left:20px; --hole:#39a1f4; }
-    #m-apps:checked ~ .selector { left:140px; --hole:#f48d4e; }
-    #m-privacy:checked ~ .selector { left:260px; --hole:#84a91c; }
-    #m-delete:checked ~ .selector { left:380px; --hole:#ff6275; }
-    #m-contact:checked ~ .selector { left:500px; --hole:#9d74ff; }
 
     /* Active label colors */
     input:checked + label[for="m-home"] { --sel:#39a1f4; }
