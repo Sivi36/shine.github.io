@@ -1,168 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sivi - Official Portfolio</title>
-<link rel="icon" type="image/png" href="shine.jpeg">
-<style>
-  * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
-  body { background:#121212; color:#fff; scroll-behavior:smooth; min-height:100vh; display:flex; flex-direction:column; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sivi - Official Portfolio</title>
+  <link rel="icon" type="image/png" href="shine.jpeg">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+    body { background:#121212; color:#fff; scroll-behavior:smooth; min-height:100vh; display:flex; flex-direction:column; }
 
-  /* Top Tab Bar */
-  nav.menu {
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
-    height:60px;
-    background:#181818;
-    width:100%;
-    max-width:800px;
-    margin:20px auto;
-    border-radius:10px;
-    position:relative;
-  }
-  nav.menu a {
-    position:relative;
-    padding:10px 20px;
-    color:#b0bfd8;
-    text-decoration:none;
-    border-radius:8px;
-    transition:0.3s;
-    cursor:pointer;
-  }
-  nav.menu a:hover { color:#fff; }
+    /***** TOP TAB BAR WITH RECTANGLE GLOW *****/
+    nav.menu {
+      display:flex;
+      justify-content:space-around;
+      align-items:center;
+      height:60px;
+      background:#181818;
+      width:100%;
+      max-width:800px;
+      margin:20px auto;
+      border-radius:10px;
+      position:relative;
+    }
 
-  nav.menu a.active::before,
-  nav.menu a:hover::before {
-    content:"";
-    position:absolute;
-    top:0; left:0; right:0; bottom:0;
-    border-radius:8px;
-    z-index:-1;
-    transition:0.4s all ease;
-  }
+    nav.menu a {
+      position:relative;
+      padding:10px 20px;
+      color:#b0bfd8;
+      text-decoration:none;
+      border-radius:8px;
+      transition:0.3s;
+    }
 
-  nav.menu a.home.active::before { background:#39a1f4; box-shadow:0 0 20px 5px rgba(57,161,244,0.5); }
-  nav.menu a.apps.active::before { background:#f48d4e; box-shadow:0 0 20px 5px rgba(244,141,78,0.5); }
-  nav.menu a.privacy.active::before { background:#84a91c; box-shadow:0 0 20px 5px rgba(132,169,28,0.5); }
-  nav.menu a.delete.active::before { background:#ff6275; box-shadow:0 0 20px 5px rgba(255,98,117,0.5); }
-  nav.menu a.contact.active::before { background:#9d74ff; box-shadow:0 0 20px 5px rgba(157,116,255,0.5); }
+    nav.menu a:hover { color:#fff; }
 
-  @media (max-width:650px) {
-    nav.menu a { font-size:14px; padding:8px 15px; }
-  }
+    /* Rectangle glow behind active tab */
+    nav.menu a.active::before,
+    nav.menu a:hover::before {
+      content:"";
+      position:absolute;
+      top:0; left:0; right:0; bottom:0;
+      border-radius:8px;
+      z-index:-1;
+      transition:0.3s;
+    }
 
-  /* Sections */
-  .tab-section { display:none; padding:40px 10%; flex:1; max-width:900px; margin:0 auto; }
-  .tab-section.active { display:block; }
+    /* Active tab colors */
+    nav.menu a.home.active::before { background:#39a1f4; box-shadow:0 0 20px 5px rgba(57,161,244,0.5); }
+    nav.menu a.apps.active::before { background:#f48d4e; box-shadow:0 0 20px 5px rgba(244,141,78,0.5); }
+    nav.menu a.privacy.active::before { background:#84a91c; box-shadow:0 0 20px 5px rgba(132,169,28,0.5); }
+    nav.menu a.delete.active::before { background:#ff6275; box-shadow:0 0 20px 5px rgba(255,98,117,0.5); }
+    nav.menu a.contact.active::before { background:#9d74ff; box-shadow:0 0 20px 5px rgba(157,116,255,0.5); }
 
-  /* Hero */
-  .hero { display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
-  .hero-text { max-width:600px; flex:1; }
-  .hero-text h2 { font-size:16px; letter-spacing:2px; color:#bbb; }
-  .hero-text h1 { font-size:50px; margin:20px 0; }
-  .hero-text h1 span { color:#ff3366; }
-  .hero-text p { margin:20px 0; color:#aaa; line-height:1.6; }
-  .hero-text .btn { display:inline-block; padding:12px 24px; margin-top:20px; background:#ff3366; color:#fff; text-decoration:none; border-radius:8px; transition:0.3s; }
-  .hero-text .btn:hover { background:#ff0055; }
-  .hero-img { flex:0.8; display:flex; justify-content:flex-end; }
-  .hero-img img { width:280px; height:auto; border-radius:20px; box-shadow:0 0 20px rgba(255,51,102,0.5); transition:0.3s; }
-  .hero-img img:hover { transform: scale(1.05); }
+    @media (max-width:650px) {
+      nav.menu a { font-size:14px; padding:8px 15px; }
+    }
 
-  /* Quote */
-  .quote { margin:30px auto; font-style:italic; font-size:18px; color:#fff; background:#1c1c1c; border-left:4px solid #ffcc00; padding:40px 20px; border-radius:8px; position:relative; overflow:hidden; box-shadow:0 0 12px rgba(255,204,0,0.3); }
-  .quote::before { content:""; position:absolute; top:0; left:0; right:0; bottom:0; background-image:url("leaders.jpg"); background-size:cover; background-position:center 20%; opacity:0.08; filter:grayscale(100%); }
-  .quote p, .quote span { position:relative; z-index:1; }
-  .quote span { display:block; margin-top:10px; font-size:16px; color:#ffcc00; text-align:right; }
+    /* Hero */
+    .hero { display:flex; align-items:center; justify-content:space-between; padding:60px 10%; gap:40px; flex-wrap:wrap; }
+    .hero-text { max-width:600px; flex:1; }
+    .hero-text h2 { font-size:16px; letter-spacing:2px; color:#bbb; }
+    .hero-text h1 { font-size:50px; margin:20px 0; }
+    .hero-text h1 span { color:#ff3366; }
+    .hero-text p { margin:20px 0; color:#aaa; line-height:1.6; }
+    .hero-text .btn { display:inline-block; padding:12px 24px; margin-top:20px; background:#ff3366; color:#fff; text-decoration:none; border-radius:8px; transition:0.3s; }
+    .hero-text .btn:hover { background:#ff0055; }
+    .hero-img { flex:0.8; display:flex; justify-content:flex-end; }
+    .hero-img img { width:280px; height:auto; border-radius:20px; box-shadow:0 0 20px rgba(255,51,102,0.5); }
 
-  /* Footer */
-  footer { background:#1c1c1c; text-align:center; padding:20px; margin-top:50px; font-size:14px; color:#aaa; }
+    /* Quote */
+    .quote { margin:30px auto; font-style:italic; font-size:18px; color:#fff; background:#1c1c1c; border-left:4px solid #ffcc00; padding:40px 20px; border-radius:8px; position:relative; overflow:hidden; max-width:800px; box-shadow:0 0 12px rgba(255,204,0,0.3); }
+    .quote::before { content:""; position:absolute; top:0; left:0; right:0; bottom:0; background-image:url("leaders.jpg"); background-size:cover; background-position:center 20%; opacity:0.08; filter:grayscale(100%); }
+    .quote p, .quote span { position:relative; z-index:1; }
+    .quote span { display:block; margin-top:10px; font-size:16px; color:#ffcc00; text-align:right; }
 
-  @media (max-width:900px) {
-    .hero { flex-direction:column; text-align:center; }
-    .hero-img { justify-content:center; margin-top:20px; }
-    .hero-img img { width:200px; }
-    .quote span { text-align:center; font-size:14px; }
-  }
-</style>
+    /* Footer */
+    footer { background:#1c1c1c; text-align:center; padding:20px; margin-top:50px; font-size:14px; color:#aaa; }
+
+    @media (max-width:900px) {
+      .hero { flex-direction:column; text-align:center; }
+      .hero-img { justify-content:center; margin-top:20px; }
+      .hero-img img { width:200px; }
+      .quote span { text-align:center; font-size:14px; }
+    }
+  </style>
 </head>
 <body>
 
   <!-- Top Tab Bar -->
   <nav class="menu">
-    <a class="tab home active" data-target="home">Home</a>
-    <a class="tab apps" data-target="apps">Apps</a>
-    <a class="tab privacy" data-target="privacy">Privacy</a>
-    <a class="tab delete" data-target="delete">Delete</a>
-    <a class="tab contact" data-target="contact">Contact</a>
+    <a href="index.html" class="tab home active">Home</a>
+    <a href="apps.html" class="tab apps">Apps</a>
+    <a href="privacy.html" class="tab privacy">Privacy</a>
+    <a href="delete.html" class="tab delete">Delete</a>
+    <a href="contact.html" class="tab contact">Contact</a>
   </nav>
 
-  <!-- Sections -->
-  <section id="home" class="tab-section active">
-    <div class="hero">
-      <div class="hero-text">
-        <h2>WELCOME TO MY PAGE</h2>
-        <h1>Hi, I'm <span>Sivi</span><br>a Student.</h1>
-        <p>I am the one who doesn’t care about failure.<br>AI is our servant.</p>
-        <a href="#" class="btn">View My Apps</a>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2>WELCOME TO MY PAGE</h2>
+      <h1>Hi, I'm <span>Sivi</span><br>a Student.</h1>
+      <p>I am the one who doesn’t care about failure.<br>AI is our servant.</p>
+      <a href="apps.html" class="btn">View My Apps</a>
 
-        <div class="quote">
-          <p>“If you want to shine like a sun, first burn like a sun.”</p>
-          <span>— A.P.J. Abdul Kalam</span>
-        </div>
-      </div>
-      <div class="hero-img">
-        <img src="profile.jpeg" alt="Sivi Profile">
+      <div class="quote">
+        <p>“If you want to shine like a sun, first burn like a sun.”</p>
+        <span>— A.P.J. Abdul Kalam</span>
       </div>
     </div>
-  </section>
 
-  <section id="apps" class="tab-section">
-    <h1>My Apps</h1>
-    <p>Here you can showcase all your apps with images, links, and descriptions.</p>
-  </section>
-
-  <section id="privacy" class="tab-section">
-    <h1>Privacy Policy</h1>
-    <p>Put your privacy policy content here.</p>
-  </section>
-
-  <section id="delete" class="tab-section">
-    <h1>Delete Account</h1>
-    <p>Instructions or forms for deleting the account can be placed here.</p>
-  </section>
-
-  <section id="contact" class="tab-section">
-    <h1>Contact</h1>
-    <p>Add your contact form or email links here.</p>
+    <div class="hero-img">
+      <img src="profile.jpeg" alt="Sivi Profile">
+    </div>
   </section>
 
   <footer>
     <p>© 2025 Shine | Built by Sivi</p>
   </footer>
-
-<script>
-  const tabs = document.querySelectorAll('.menu .tab');
-  const sections = document.querySelectorAll('.tab-section');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', (e) => {
-      e.preventDefault(); // prevent page reload
-
-      // Remove active class from all tabs
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
-      // Hide all sections
-      sections.forEach(sec => sec.classList.remove('active'));
-
-      // Show selected section
-      const target = tab.getAttribute('data-target');
-      document.getElementById(target).classList.add('active');
-    });
-  });
-</script>
 
 </body>
 </html>
