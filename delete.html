@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - Shine</title>
+  <title>Home - Shine</title>
   <link rel="icon" type="image/png" href="shine.jpeg">
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
@@ -21,7 +21,6 @@
       background-size: 600% 600%;
       animation: gradientBG 15s ease infinite;
     }
-
     @keyframes gradientBG {
       0% { background-position:0% 50%; }
       50% { background-position:100% 50%; }
@@ -36,7 +35,6 @@
       z-index:0;
       overflow:hidden;
     }
-
     .particles span {
       position:absolute;
       display:block;
@@ -46,7 +44,6 @@
       border-radius:50%;
       animation: float 10s linear infinite;
     }
-
     .particles span:nth-child(1){ left:10%; animation-duration:12s; }
     .particles span:nth-child(2){ left:20%; animation-duration:15s; }
     .particles span:nth-child(3){ left:30%; animation-duration:18s; }
@@ -57,7 +54,6 @@
     .particles span:nth-child(8){ left:80%; animation-duration:17s; }
     .particles span:nth-child(9){ left:90%; animation-duration:11s; }
     .particles span:nth-child(10){ left:95%; animation-duration:19s; }
-
     @keyframes float {
       0% { transform: translateY(100vh) scale(0.5); opacity:0; }
       50% { opacity:0.4; }
@@ -81,13 +77,11 @@
       backdrop-filter: blur(10px);
       animation: navGlow 6s ease-in-out infinite alternate;
     }
-
     @keyframes navGlow {
       0% { box-shadow: 0 0 15px rgba(255,51,102,0.5), 0 0 30px rgba(57,161,244,0.3); }
       50% { box-shadow: 0 0 25px rgba(255,51,102,0.7), 0 0 50px rgba(57,161,244,0.5); }
       100% { box-shadow: 0 0 15px rgba(255,51,102,0.5), 0 0 30px rgba(57,161,244,0.3); }
     }
-
     nav.menu a {
       position:relative;
       padding:10px 20px;
@@ -98,9 +92,7 @@
       z-index:1;
       font-weight:bold;
     }
-
     nav.menu a:hover { color:#fff; transform:scale(1.1); }
-
     nav.menu a.active::before {
       content:"";
       position:absolute; top:0; left:0; right:0; bottom:0;
@@ -112,13 +104,11 @@
       animation: activeTabGlow 4s linear infinite;
       box-shadow:0 0 15px rgba(255,51,102,0.5), 0 0 20px rgba(57,161,244,0.5), 0 0 25px rgba(255,204,0,0.5);
     }
-
     @keyframes activeTabGlow {
       0% { background-position:0% 50%; }
       50% { background-position:100% 50%; }
       100% { background-position:0% 50%; }
     }
-
     @media (max-width:650px) { nav.menu a { font-size:14px; padding:8px 15px; } }
 
     /* ===== Main Content ===== */
@@ -134,20 +124,8 @@
       position:relative;
       z-index:1;
     }
-
     h1 { font-size:40px; color:#ff3366; margin-bottom:20px; }
     p { font-size:18px; margin-bottom:30px; color:#ddd; }
-    a.email-link {
-      display:inline-block;
-      padding:16px 32px;
-      background:#ff3366;
-      color:#fff;
-      text-decoration:none;
-      border-radius:12px;
-      font-size:18px;
-      transition:0.3s;
-    }
-    a.email-link:hover { background:#ff0055; transform:scale(1.05); }
 
     footer {
       background:#1c1c1c;
@@ -170,20 +148,17 @@
 
   <!-- Top Tab Bar -->
   <nav class="menu">
-    <a href="index.html" class="tab home">Home</a>
+    <a href="index.html" class="tab home active">Home</a>
     <a href="apps.html" class="tab apps">Apps</a>
     <a href="privacy.html" class="tab privacy">Privacy</a>
     <a href="delete.html" class="tab delete">Delete</a>
-    <a href="contact.html" class="tab contact active">Contact</a>
+    <a href="contact.html" class="tab contact">Contact</a>
   </nav>
 
   <!-- Main Content -->
   <main>
-    <h1>Contact Me</h1>
-    <p>If you want to give tips, ask a question, or leave a review, feel free to contact me via email.</p>
-    <a href="mailto:shinedeveloper2@gmail.com?subject=Hello%20Sivi&body=Hi%20Sivi,%0A%0AI%20would%20like%20to%20share%20my%20thoughts..." class="email-link">
-      shinedeveloper2@gmail.com
-    </a>
+    <h1>Welcome to Shine</h1>
+    <p>This is your Home page. You can add your content here. The background, nav, and particles are now consistent across all pages.</p>
   </main>
 
   <!-- Footer -->
