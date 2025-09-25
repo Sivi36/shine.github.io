@@ -144,6 +144,50 @@
 
     footer { background:#1c1c1c; text-align:center; padding:20px; margin-top:50px; font-size:14px; color:#aaa; z-index:1; position:relative; }
 
+    /* ===== Bat Animation ===== */
+    .bat {
+      position: relative;
+      width: 80px;
+      height: 40px;
+      background: #4c0a0a;
+      border-radius: 4px;
+      animation: fly 2s linear infinite;
+      margin: 30px auto;
+    }
+
+    .bat::before,
+    .bat::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 40px;
+      height: 40px;
+      background: #4c0a0a;
+      clip-path: polygon(0 100%, 100% 50%, 0 0);
+      animation: flap 0.5s ease-in-out infinite alternate;
+    }
+
+    .bat::before {
+      left: -40px;
+      transform-origin: right center;
+    }
+
+    .bat::after {
+      right: -40px;
+      transform-origin: left center;
+    }
+
+    @keyframes fly {
+      0%   { transform: translateY(0) }
+      50%  { transform: translateY(-20px) }
+      100% { transform: translateY(0) }
+    }
+
+    @keyframes flap {
+      from { transform: rotate(20deg); }
+      to   { transform: rotate(-20deg); }
+    }
+
     @media (max-width:900px) {
       .hero { flex-direction:column; text-align:center; }
       .hero-img { justify-content:center; margin-top:20px; }
@@ -187,6 +231,9 @@
         <span>— A.P.J. Abdul Kalam</span>
       </div>
     </div>
+
+    <!-- Bat in between -->
+    <div class="bat"></div>
 
     <div class="hero-img">
       <img src="profile.jpeg" alt="Sivi Profile">
