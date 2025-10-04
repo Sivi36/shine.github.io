@@ -6,7 +6,7 @@
   <title>My Apps - Shine</title>
   <link rel="icon" type="image/png" href="shine.jpeg">
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; } /* Changed font-family for modern look */
 
     body {
       min-height:100vh;
@@ -69,7 +69,7 @@
       align-items:center;
       height:60px;
       background: rgba(24,24,24,0.9);
-      width:100%;
+      width:95%; /* Responsive width */
       max-width:800px;
       margin:20px auto;
       border-radius:12px;
@@ -88,13 +88,21 @@
 
     nav.menu a {
       position:relative;
-      padding:10px 20px;
+      padding:10px 15px; /* Adjust padding for mobile */
       color:#b0bfd8;
       text-decoration:none;
       border-radius:10px;
       transition:0.3s;
       z-index:1;
       font-weight:bold;
+      font-size: 14px; /* Adjust font size for mobile */
+    }
+    
+    @media (min-width: 600px) {
+        nav.menu a {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
     }
 
     nav.menu a:hover { color:#fff; transform:scale(1.1); }
@@ -118,11 +126,12 @@
     }
 
     main {
+      width: 90%; /* Responsive width */
       max-width:600px;
       margin:40px auto;
-      padding:40px;
+      padding:40px 20px; /* Responsive padding */
       background:#1c1c1c;
-      border-radius:12px;
+      border-radius:16px; /* Slightly larger radius */
       box-shadow:0 0 25px rgba(255,51,102,0.5);
       flex:1;
       text-align:center;
@@ -132,19 +141,45 @@
 
     h1 { font-size:36px; color:#ff3366; margin-bottom:20px; }
     p { font-size:18px; line-height:1.6; margin-bottom:30px; color:#ddd; }
+    
+    /* --- App Link with Icon Styling --- */
     a.app-link {
-      display:block;
+      display: flex; /* Enable flexbox for icon and text alignment */
+      align-items: center; /* Vertically center icon and text */
+      justify-content: center; /* Horizontally center content */
+      gap: 15px; /* Space between icon and text */
+      
       padding:16px 32px;
       margin:15px auto;
       width:250px;
-      background:#f48d4e;
+      background: linear-gradient(90deg, #f48d4e, #ff7a42); /* Added a subtle gradient */
       color:#fff;
       text-decoration:none;
       border-radius:12px;
-      font-size:18px;
+      font-size:20px; /* Slightly larger font */
       transition:0.3s, transform 0.2s;
+      font-weight: 700;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
-    a.app-link:hover { background:#ff7a42; transform:scale(1.05); }
+    
+    a.app-link:hover { 
+      background: linear-gradient(90deg, #ff7a42, #f48d4e); 
+      transform:scale(1.05); 
+      box-shadow: 0 6px 15px rgba(255, 122, 66, 0.5); /* Hover glow */
+    }
+
+    .app-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px; /* Match the main container's roundness */
+        object-fit: cover;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Ensure the text is visible */
+    a.app-link span {
+        color: #fff;
+    }
 
     footer {
       background:#1c1c1c;
@@ -154,6 +189,7 @@
       color:#aaa;
       position:relative;
       z-index:1;
+      margin-top: auto;
     }
   </style>
 </head>
@@ -175,8 +211,20 @@
   <main>
     <h1>My Apps</h1>
     <p>Download our apps below. Click the button to go to Google Play Store.</p>
-    <a href="https://play.google.com/store/apps/details?id=com.shine.playnest" target="_blank" class="app-link">Play Nest</a>
-    <a href="https://play.google.com/store/apps/details?id=com.shine.calmat" target="_blank" class="app-link">CalMat</a>
+    
+    <!-- App Link 1: Play Nest -->
+    <a href="https://play.google.com/store/apps/details?id=com.shine.playnest" target="_blank" class="app-link">
+        <!-- Using a placeholder image for demonstration. Replace the src with your local file "playneest.png" -->
+        <img src="https://placehold.co/40x40/ff3366/ffffff?text=PN" alt="Play Nest Icon" class="app-icon">
+        <span>Play Nest</span>
+    </a>
+    
+    <!-- App Link 2: CalMat -->
+    <a href="https://play.google.com/store/apps/details?id=com.shine.calmat" target="_blank" class="app-link">
+        <!-- Using a placeholder image for demonstration. Replace the src with your local file "calmat.png" -->
+        <img src="https://placehold.co/40x40/39a1f4/ffffff?text=CM" alt="CalMat Icon" class="app-icon">
+        <span>CalMat</span>
+    </a>
   </main>
 
   <footer>
