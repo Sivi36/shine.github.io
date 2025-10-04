@@ -63,7 +63,6 @@
       100% { transform: translateY(-10vh) scale(1); opacity:0; }
     }
 
-    /* ===== Glowy Nav Bar ===== */
     nav.menu {
       display:flex;
       justify-content:space-around;
@@ -135,10 +134,10 @@
     p { font-size:18px; line-height:1.6; margin-bottom:30px; color:#ddd; }
 
     a.app-link {
-      display: flex; /* flex for icon + text */
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px; /* space between icon and text */
+      gap: 12px;
       padding:16px 32px;
       margin:15px auto;
       width:250px;
@@ -149,6 +148,7 @@
       font-size:18px;
       transition:0.3s, transform 0.2s;
     }
+
     a.app-link:hover { background:#ff7a42; transform:scale(1.05); }
 
     a.app-link img.app-icon {
@@ -192,15 +192,17 @@
     <h1>My Apps</h1>
     <p>Download our apps below. Click the button to go to Google Play Store.</p>
 
+    <!-- Play Nest -->
     <a href="https://play.google.com/store/apps/details?id=com.shine.playnest" target="_blank" rel="noopener noreferrer" class="app-link">
-  <img src="images/playnest.png" alt="Play Nest Icon" class="app-icon">
-  <span>Play Nest</span>
-</a>
+      <img src="https://play-lh.googleusercontent.com/Jf-8HTkVwLyK-H2yf4s8t06aD4EavCeq7lKcUYQKfF0Jt0tY6Z4k5iXxq1k9u3J1P38=s48-rw" alt="Play Nest Icon" class="app-icon">
+      <span>Play Nest</span>
+    </a>
 
-<a href="https://play.google.com/store/apps/details?id=com.shine.calmat" target="_blank" rel="noopener noreferrer" class="app-link">
-  <img src="images/calmat.png" alt="CalMat Icon" class="app-icon">
-  <span>CalMat</span>
-</a>
+    <!-- CalMat -->
+    <a href="https://play.google.com/store/apps/details?id=com.shine.calmat" target="_blank" rel="noopener noreferrer" class="app-link">
+      <img src="https://play-lh.googleusercontent.com/5S0gY7W0v8V2QbMpt2yzl8J-NP6Z3ZpRXtVf6bN7rF4N7qP5uCkGzjYF5XbRyA9nqA=s48-rw" alt="CalMat Icon" class="app-icon">
+      <span>CalMat</span>
+    </a>
 
   </main>
 
