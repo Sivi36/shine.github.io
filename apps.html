@@ -132,13 +132,8 @@
 
     h1 { font-size:36px; color:#ff3366; margin-bottom:20px; }
     p { font-size:18px; line-height:1.6; margin-bottom:30px; color:#ddd; }
-
-    /* Updated styles for app-link and new styles for the icon */
     a.app-link {
-      display: flex; /* Use Flexbox for icon and text alignment */
-      justify-content: center; /* Center content horizontally */
-      align-items: center; /* Center content vertically */
-      gap: 10px; /* Space between icon and name */
+      display:block;
       padding:16px 32px;
       margin:15px auto;
       width:250px;
@@ -150,15 +145,6 @@
       transition:0.3s, transform 0.2s;
     }
     a.app-link:hover { background:#ff7a42; transform:scale(1.05); }
-
-    /* Style for the app icon image */
-    .app-icon {
-        width: 30px; /* Set a fixed size for the icon */
-        height: 30px;
-        border-radius: 6px; /* Optional: give the icon slightly rounded corners */
-        object-fit: cover; /* Ensure the image covers the area nicely */
-        vertical-align: middle;
-    }
 
     footer {
       background:#1c1c1c;
@@ -185,7 +171,7 @@
     <a href="delete.html" class="tab delete">Delete</a>
     <a href="contact.html" class="tab contact">Contact</a>
   </nav>
-
+    
   <main>
     <h1>My Apps</h1>
     <p>Download our apps below. Click the button to go to Google Play Store.</p>
