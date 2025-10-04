@@ -1,187 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Apps - Shine</title>
-  <link rel="icon" type="image/png" href="shine.jpeg">
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Apps - Shine</title>
+  <link rel="icon" type="image/png" href="shine.jpeg">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
 
-    body {
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      color:#fff;
-      scroll-behavior:smooth;
-      position:relative;
-      overflow-x:hidden;
-      background: linear-gradient(270deg, #121212, #1a1a2e, #121212);
-      background-size: 600% 600%;
-      animation: gradientBG 15s ease infinite;
+    body {
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      color:#fff;
+      scroll-behavior:smooth;
+      position:relative;
+      overflow-x:hidden;
+      background: linear-gradient(270deg, #121212, #1a1a2e, #121212);
+      background-size: 600% 600%;
+      animation: gradientBG 15s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position:0% 50%; }
+      50% { background-position:100% 50%; }
+      100% { background-position:0% 50%; }
+    }
+
+    .particles {
+      position: fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      z-index:0;
+      overflow:hidden;
+    }
+
+    .particles span {
+      position:absolute;
+      display:block;
+      width:10px;
+      height:10px;
+      background: rgba(255,255,255,0.1);
+      border-radius:50%;
+      animation: float 10s linear infinite;
+    }
+
+    .particles span:nth-child(1){ left:10%; animation-duration:12s; }
+    .particles span:nth-child(2){ left:20%; animation-duration:15s; }
+    .particles span:nth-child(3){ left:30%; animation-duration:18s; }
+    .particles span:nth-child(4){ left:40%; animation-duration:10s; }
+    .particles span:nth-child(5){ left:50%; animation-duration:14s; }
+    .particles span:nth-child(6){ left:60%; animation-duration:16s; }
+    .particles span:nth-child(7){ left:70%; animation-duration:13s; }
+    .particles span:nth-child(8){ left:80%; animation-duration:17s; }
+    .particles span:nth-child(9){ left:90%; animation-duration:11s; }
+    .particles span:nth-child(10){ left:95%; animation-duration:19s; }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(0.5); opacity:0; }
+      50% { opacity:0.4; }
+      100% { transform: translateY(-10vh) scale(1); opacity:0; }
+    }
+
+    /* ===== Glowy Nav Bar ===== */
+    nav.menu {
+      display:flex;
+      justify-content:space-around;
+      align-items:center;
+      height:60px;
+      background: rgba(24,24,24,0.9);
+      width:100%;
+      max-width:800px;
+      margin:20px auto;
+      border-radius:12px;
+      position:relative;
+      z-index:1;
+      box-shadow: 0 0 15px rgba(255,51,102,0.5), 0 0 30px rgba(57,161,244,0.3);
+      backdrop-filter: blur(10px);
+      animation: navGlow 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes navGlow {
+      0% { box-shadow: 0 0 15px rgba(255,51,102,0.5), 0 0 30px rgba(57,161,244,0.3); }
+      50% { box-shadow: 0 0 25px rgba(255,51,102,0.7), 0 0 50px rgba(57,161,244,0.5); }
+      100% { box-shadow: 0 0 15px rgba(255,51,102,0.5), 0 0 30px rgba(57,161,244,0.3); }
+    }
+
+    nav.menu a {
+      position:relative;
+      padding:10px 20px;
+      color:#b0bfd8;
+      text-decoration:none;
+      border-radius:10px;
+      transition:0.3s;
+      z-index:1;
+      font-weight:bold;
+    }
+
+    nav.menu a:hover { color:#fff; transform:scale(1.1); }
+
+    nav.menu a.active::before {
+      content:"";
+      position:absolute; top:0; left:0; right:0; bottom:0;
+      border-radius:10px;
+      z-index:-1;
+      transition:0.3s;
+      background: linear-gradient(45deg, #ff3366, #39a1f4, #ffcc00);
+      background-size: 400% 400%;
+      animation: activeTabGlow 4s linear infinite;
+      box-shadow:0 0 15px rgba(255,51,102,0.5), 0 0 20px rgba(57,161,244,0.5), 0 0 25px rgba(255,204,0,0.5);
+    }
+
+    @keyframes activeTabGlow {
+      0% { background-position:0% 50%; }
+      50% { background-position:100% 50%; }
+      100% { background-position:0% 50%; }
+    }
+
+    main {
+      max-width:600px;
+      margin:40px auto;
+      padding:40px;
+      background:#1c1c1c;
+      border-radius:12px;
+      box-shadow:0 0 25px rgba(255,51,102,0.5);
+      flex:1;
+      text-align:center;
+      position:relative;
+      z-index:1;
+    }
+
+    h1 { font-size:36px; color:#ff3366; margin-bottom:20px; }
+    p { font-size:18px; line-height:1.6; margin-bottom:30px; color:#ddd; }
+
+    /* Updated styles for app-link and new styles for the icon */
+    a.app-link {
+      display: flex; /* Use Flexbox for icon and text alignment */
+      justify-content: center; /* Center content horizontally */
+      align-items: center; /* Center content vertically */
+      gap: 10px; /* Space between icon and name */
+      padding:16px 32px;
+      margin:15px auto;
+      width:250px;
+      background:#f48d4e;
+      color:#fff;
+      text-decoration:none;
+      border-radius:12px;
+      font-size:18px;
+      transition:0.3s, transform 0.2s;
+    }
+    a.app-link:hover { background:#ff7a42; transform:scale(1.05); }
+
+    /* Style for the app icon image */
+    .app-icon {
+        width: 30px; /* Set a fixed size for the icon */
+        height: 30px;
+        border-radius: 6px; /* Optional: give the icon slightly rounded corners */
+        object-fit: cover; /* Ensure the image covers the area nicely */
+        vertical-align: middle;
     }
 
-    @keyframes gradientBG {
-      0% { background-position:0% 50%; }
-      50% { background-position:100% 50%; }
-      100% { background-position:0% 50%; }
-    }
-
-    .particles {
-      position: fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      z-index:0;
-      overflow:hidden;
-    }
-
-    .particles span {
-      position:absolute;
-      display:block;
-      width:10px;
-      height:10px;
-      background: rgba(255,255,255,0.1);
-      border-radius:50%;
-      animation: float 10s linear infinite;
-    }
-
-    .particles span:nth-child(1){ left:10%; animation-duration:12s; }
-    .particles span:nth-child(2){ left:20%; animation-duration:15s; }
-    .particles span:nth-child(3){ left:30%; animation-duration:18s; }
-    .particles span:nth-child(4){ left:40%; animation-duration:10s; }
-    .particles span:nth-child(5){ left:50%; animation-duration:14s; }
-    .particles span:nth-child(6){ left:60%; animation-duration:16s; }
-    .particles span:nth-child(7){ left:70%; animation-duration:13s; }
-    .particles span:nth-child(8){ left:80%; animation-duration:17s; }
-    .particles span:nth-child(9){ left:90%; animation-duration:11s; }
-    .particles span:nth-child(10){ left:95%; animation-duration:19s; }
-
-    @keyframes float {
-      0% { transform: translateY(100vh) scale(0.5); opacity:0; }
-      50% { opacity:0.4; }
-      100% { transform: translateY(-10vh) scale(1); opacity:0; }
-    }
-
-    /* ===== Glowy Nav Bar ===== */
-    nav.menu {
-      display:flex;
-      justify-content:space-around;
-      align-items:center;
-      height:60px;
-      background: rgba(24,24,24,0.9);
-      width:100%;
-      max-width:800px;
-      margin:20px auto;
-      border-radius:12px;
-      position:relative;
-      z-index:1;
-      box-shadow: 0 0 15px rgba(255,51,102,0.5), 0 0 30px rgba(57,161,244,0.3);
-      backdrop-filter: blur(10px);
-      animation: navGlow 6s ease-in-out infinite alternate;
-    }
-
-    @keyframes navGlow {
-      0% { box-shadow: 0 0 15px rgba(255,51,102,0.5), 0 0 30px rgba(57,161,244,0.3); }
-      50% { box-shadow: 0 0 25px rgba(255,51,102,0.7), 0 0 50px rgba(57,161,244,0.5); }
-      100% { box-shadow: 0 0 15px rgba(255,51,102,0.5), 0 0 30px rgba(57,161,244,0.3); }
-    }
-
-    nav.menu a {
-      position:relative;
-      padding:10px 20px;
-      color:#b0bfd8;
-      text-decoration:none;
-      border-radius:10px;
-      transition:0.3s;
-      z-index:1;
-      font-weight:bold;
-    }
-
-    nav.menu a:hover { color:#fff; transform:scale(1.1); }
-
-    nav.menu a.active::before {
-      content:"";
-      position:absolute; top:0; left:0; right:0; bottom:0;
-      border-radius:10px;
-      z-index:-1;
-      transition:0.3s;
-      background: linear-gradient(45deg, #ff3366, #39a1f4, #ffcc00);
-      background-size: 400% 400%;
-      animation: activeTabGlow 4s linear infinite;
-      box-shadow:0 0 15px rgba(255,51,102,0.5), 0 0 20px rgba(57,161,244,0.5), 0 0 25px rgba(255,204,0,0.5);
-    }
-
-    @keyframes activeTabGlow {
-      0% { background-position:0% 50%; }
-      50% { background-position:100% 50%; }
-      100% { background-position:0% 50%; }
-    }
-
-    main {
-      max-width:600px;
-      margin:40px auto;
-      padding:40px;
-      background:#1c1c1c;
-      border-radius:12px;
-      box-shadow:0 0 25px rgba(255,51,102,0.5);
-      flex:1;
-      text-align:center;
-      position:relative;
-      z-index:1;
-    }
-
-    h1 { font-size:36px; color:#ff3366; margin-bottom:20px; }
-    p { font-size:18px; line-height:1.6; margin-bottom:30px; color:#ddd; }
-    a.app-link {
-      display:block;
-      padding:16px 32px;
-      margin:15px auto;
-      width:250px;
-      background:#f48d4e;
-      color:#fff;
-      text-decoration:none;
-      border-radius:12px;
-      font-size:18px;
-      transition:0.3s, transform 0.2s;
-    }
-    a.app-link:hover { background:#ff7a42; transform:scale(1.05); }
-
-    footer {
-      background:#1c1c1c;
-      text-align:center;
-      padding:20px;
-      font-size:14px;
-      color:#aaa;
-      position:relative;
-      z-index:1;
-    }
-  </style>
+    footer {
+      background:#1c1c1c;
+      text-align:center;
+      padding:20px;
+      font-size:14px;
+      color:#aaa;
+      position:relative;
+      z-index:1;
+    }
+  </style>
 </head>
 <body>
 
-  <div class="particles">
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span>
-  </div>
+  <div class="particles">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
 
-  <nav class="menu">
-    <a href="index.html" class="tab home">Home</a>
-    <a href="apps.html" class="tab apps active">Apps</a>
-    <a href="privacy.html" class="tab privacy">Privacy</a>
-    <a href="delete.html" class="tab delete">Delete</a>
-    <a href="contact.html" class="tab contact">Contact</a>
-  </nav>
+  <nav class="menu">
+    <a href="index.html" class="tab home">Home</a>
+    <a href="apps.html" class="tab apps active">Apps</a>
+    <a href="privacy.html" class="tab privacy">Privacy</a>
+    <a href="delete.html" class="tab delete">Delete</a>
+    <a href="contact.html" class="tab contact">Contact</a>
+  </nav>
 
-  <main>
-    <h1>My Apps</h1>
-    <p>Download our apps below. Click the button to go to Google Play Store.</p>
-    <a href="https://play.google.com/store/apps/details?id=com.shine.playnest" target="_blank" class="app-link">Play Nest</a>
-    <a href="https://play.google.com/store/apps/details?id=com.shine.calmat" target="_blank" class="app-link">CalMat</a>
-  </main>
+  <main>
+    <h1>My Apps</h1>
+    <p>Download our apps below. Click the button to go to Google Play Store.</p>
+    <a href="https://play.google.com/store/apps/details?id=com.shine.playnest" target="_blank" class="app-link">
+        <img src="playnest.png" alt="Play Nest Icon" class="app-icon">
+        <span class="app-name">Play Nest</span>
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.shine.calmat" target="_blank" class="app-link">
+        <img src="calmat.png" alt="CalMat Icon" class="app-icon">
+        <span class="app-name">CalMat</span>
+    </a>
+  </main>
 
-  <footer>
-    © 2025 Shine | Built by Sivi
-  </footer>
+  <footer>
+    © 2025 Shine | Built by Sivi
+  </footer>
 
 </body>
 </html>
