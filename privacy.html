@@ -6,7 +6,10 @@
   <title>Privacy Policy - Shine</title>
   <link rel="icon" type="image/png" href="shine.jpeg">
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+    /* Added Google Inter font for a modern, crisp look */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; } /* Updated font */
 
     body {
       min-height:100vh;
@@ -46,7 +49,7 @@
       display:flex; justify-content:space-around; align-items:center;
       height:60px;
       background: rgba(24,24,24,0.9);
-      width:100%; max-width:800px;
+      width:95%; max-width:800px; /* Adjusted to 95% for better mobile margin */
       margin:20px auto; border-radius:12px;
       position:relative; z-index:1;
       box-shadow: 0 0 15px rgba(255,51,102,0.5), 0 0 30px rgba(57,161,244,0.3);
@@ -71,18 +74,87 @@
     @keyframes activeTabGlow { 0% { background-position:0% 50%; } 50% { background-position:100% 50%; } 100% { background-position:0% 50%; } }
     @media (max-width:650px) { nav.menu a { font-size:14px; padding:8px 15px; } }
 
-    /* Main content */
+    /* Main content container enhancements */
     main {
-      max-width:800px; margin:40px auto; padding:40px; background:#1c1c1c; border-radius:12px;
-      box-shadow:0 0 25px rgba(255,51,102,0.5); flex:1; position:relative; z-index:1;
+      width: 90%; /* Responsive width */
+      max-width:800px; 
+      margin:40px auto; 
+      padding:40px; 
+      background:rgba(28,28,28, 0.95); /* Slightly less opaque for better particle blend */
+      border-radius:16px; /* Slightly larger radius */
+      /* Enhanced Multi-layered glow */
+      box-shadow:
+        0 0 15px rgba(57, 161, 244, 0.5), /* Blue internal glow */
+        0 0 40px rgba(255, 51, 102, 0.4), /* Pink medium glow */
+        0 10px 25px rgba(0, 0, 0, 0.7); /* Standard shadow for lift */
+      border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border */
+      flex:1; 
+      position:relative; 
+      z-index:1;
     }
-    h1 { font-size:40px; color:#ff3366; margin-bottom:20px; text-align:center; }
-    h2 { color:#ffcc00; margin-bottom:15px; }
-    p { margin-bottom:20px; line-height:1.6; }
-    a.email-link { color:#ff3366; text-decoration:none; }
-    a.email-link:hover { text-decoration:underline; }
+    
+    h1 { 
+        font-size: 48px; /* Larger title */
+        color:#ff3366; 
+        margin-bottom:25px; 
+        text-align:center; 
+        font-weight: 800;
+        text-shadow: 0 0 5px rgba(255,51,102,0.8); /* Text glow */
+    }
+    
+    h2 { 
+        color:#00ccff; /* Changed secondary color to a vibrant cyan for contrast */
+        margin-bottom:15px; 
+        font-size:24px;
+        font-weight: 600;
+        border-bottom: 2px solid rgba(0, 204, 255, 0.3); /* Subtle underline */
+        padding-bottom: 5px;
+    }
+    
+    p { 
+        margin-bottom:20px; 
+        line-height:1.7; /* Increased line height for readability */
+        color: #ddd; /* Lighter text color for better contrast */
+    }
+    
+    a.email-link { 
+        color:#ff3366; 
+        text-decoration:none; 
+        font-weight: 600;
+        transition: color 0.2s;
+    }
+    a.email-link:hover { 
+        color: #ff6699; /* Brighter pink on hover */
+        text-decoration:underline; 
+    }
+    
+    strong {
+        color: #ffcc00; /* Highlight important points */
+    }
 
-    footer { background:#1c1c1c; text-align:center; padding:20px; font-size:14px; color:#aaa; position:relative; z-index:1; }
+    footer { 
+      background:#1c1c1c; 
+      text-align:center; 
+      padding:20px; 
+      font-size:14px; 
+      color:#aaa; 
+      position:relative; 
+      z-index:1;
+      margin-top: auto; /* Push footer to the bottom */
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    @media (max-width: 600px) {
+        main {
+            padding: 30px 20px;
+        }
+        h1 {
+            font-size: 36px;
+        }
+        h2 {
+            font-size: 20px;
+        }
+    }
   </style>
 </head>
 <body>
@@ -104,16 +176,27 @@
 
   <main>
     <h1>Privacy Policy</h1>
+    
     <h2>Your Privacy Matters</h2>
     <p>At <strong>Shine</strong>, we respect your privacy. Our apps collect only the data necessary 
-       to provide core functionality. We do <strong>not</strong> sell or share your personal 
-       information with third parties.</p>
+        to provide core functionality. We do <strong>not</strong> sell or share your personal 
+        information with third parties.</p>
 
-    <p>We may use minimal analytics to improve user experience, but these never include 
-       personally identifiable information.</p>
-
-    <p>If you have any questions, please contact us at:  
-       <a href="mailto:shinedeveloper2@gmail.com?subject=Privacy%20Policy%20Inquiry&body=Hi%20Sivi," class="email-link">shinedeveloper2@gmail.com</a></p>
+    <h2>Data Collection and Usage</h2>
+    <p>We believe in privacy by design. The data collected is limited to **non-personally identifiable usage statistics** necessary for improving app performance and user experience. This includes information like device type, crash reports, and basic feature interaction, but **never** your name, email, or precise location.</p>
+    
+    <h2>Third-Party Services</h2>
+    <p>We utilize minimal, privacy-focused third-party services (such as Google Play Services for distribution) which operate under their own strict privacy policies. We ensure that data shared with these services is minimized and anonymized wherever possible.</p>
+    
+    <h2>Policy Changes</h2>
+    <p>We may update this privacy policy from time to time. We will notify you of any significant changes by updating the policy within the app or on this page. Your continued use of the app after such updates constitutes acceptance of the new terms.</p>
+    
+    <h2>Contact Information</h2>
+    <p>If you have any questions or concerns regarding this policy or our data practices, please contact us directly:</p>
+    
+    <p>Email: 
+        <a href="mailto:shinedeveloper2@gmail.com?subject=Privacy%20Policy%20Inquiry&body=Hi%20Sivi," class="email-link">shinedeveloper2@gmail.com</a>
+    </p>
   </main>
 
   <footer>
