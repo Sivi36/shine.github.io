@@ -6,7 +6,10 @@
   <title>Contact - Shine</title>
   <link rel="icon" type="image/png" href="shine.jpeg">
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+    /* Added Google Inter font for a modern, crisp look */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; } /* Updated font to Inter */
 
     /* ===== Animated gradient background ===== */
     body {
@@ -64,14 +67,14 @@
       100% { transform: translateY(-10vh) scale(1); opacity:0; }
     }
 
-    /* ===== Enhanced Top Tab Bar ===== */
+    /* ===== Glowing Top Tab Bar (Menu) - Styles are already good here ===== */
     nav.menu {
       display:flex;
       justify-content:space-around;
       align-items:center;
       height:60px;
       background: rgba(24,24,24,0.9);
-      width:100%;
+      width:95%; /* Adjusted for better mobile margin */
       max-width:800px;
       margin:20px auto;
       border-radius:12px;
@@ -103,8 +106,7 @@
 
     nav.menu a.active::before {
       content:"";
-      position:absolute;
-      top:0; left:0; right:0; bottom:0;
+      position:absolute; top:0; left:0; right:0; bottom:0;
       border-radius:10px;
       z-index:-1;
       transition:0.3s;
@@ -122,22 +124,42 @@
 
     @media (max-width:650px) { nav.menu a { font-size:14px; padding:8px 15px; } }
 
-    /* ===== Main Content ===== */
+    /* ===== Main Content (Updated to match Delete/Privacy page glow) ===== */
     main {
+      width: 90%; /* Responsive width */
       max-width:800px;
       margin:40px auto;
       padding:40px;
-      background:#1c1c1c;
-      border-radius:12px;
-      box-shadow:0 0 25px rgba(255,51,102,0.5);
+      background:rgba(28,28,28, 0.95); /* Adjusted background opacity */
+      border-radius:16px; /* Larger radius */
+      /* Consistent Multi-layered glow */
+      box-shadow:
+        0 0 15px rgba(57, 161, 244, 0.5), /* Blue internal glow */
+        0 0 40px rgba(255, 51, 102, 0.4), /* Pink medium glow */
+        0 10px 25px rgba(0, 0, 0, 0.7); /* Standard shadow for lift */
+      border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border */
       flex:1;
       text-align:center;
       position:relative;
       z-index:1;
     }
 
-    h1 { font-size:40px; color:#ff3366; margin-bottom:20px; }
-    p { font-size:18px; margin-bottom:30px; color:#ddd; }
+    h1 { 
+        font-size: 48px; /* Larger title */
+        color:#ff3366; 
+        margin-bottom:25px; 
+        font-weight: 800;
+        text-shadow: 0 0 5px rgba(255,51,102,0.8); /* Text glow */
+    }
+    
+    p { 
+        font-size:18px; 
+        margin-bottom:25px; 
+        color:#ddd; /* Lighter color for better contrast */
+        line-height: 1.7; /* Increased line height for readability */
+    }
+    
+    /* Style for the email link/button */
     a.email-link {
       display:inline-block;
       padding:16px 32px;
@@ -146,9 +168,17 @@
       text-decoration:none;
       border-radius:12px;
       font-size:18px;
+      font-weight: 600;
       transition:0.3s;
+      box-shadow: 0 0 15px rgba(255,51,102,0.8); /* Added initial button glow */
     }
-    a.email-link:hover { background:#ff0055; transform:scale(1.05); }
+    
+    a.email-link:hover { 
+      background:#ff0055; 
+      transform:scale(1.08); /* Increased hover scale */
+      /* Intensified pink and added secondary blue glow on hover for consistency */
+      box-shadow: 0 0 25px rgba(255,51,102,1), 0 0 15px rgba(57,161,244, 0.5); 
+    }
 
     footer {
       background:#1c1c1c;
@@ -158,6 +188,18 @@
       color:#aaa;
       position:relative;
       z-index:1;
+      margin-top: auto; /* Push footer to the bottom */
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    /* Mobile responsiveness adjustments */
+    @media (max-width: 600px) {
+        main {
+            padding: 30px 20px;
+        }
+        h1 {
+            font-size: 36px;
+        }
     }
   </style>
 </head>
@@ -181,7 +223,7 @@
   <!-- Main Content -->
   <main>
     <h1>Contact Me</h1>
-    <p>If you want to give tips, ask a question, or leave a review, feel free to contact me via email.</p>
+    <p>If you have any feedback, need assistance, or would like to share a review about Shine's products, please don't hesitate to reach out. I value your input!</p>
     <a href="mailto:shinedeveloper2@gmail.com?subject=Hello%20Sivi&body=Hi%20Sivi,%0A%0AI%20would%20like%20to%20share%20my%20thoughts..." class="email-link">
       shinedeveloper2@gmail.com
     </a>
