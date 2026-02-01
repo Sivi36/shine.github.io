@@ -1,156 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sivi - Official Portfolio</title>
-<link rel="icon" type="image/png" href="shine.jpeg">
-<style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sivi - Official Portfolio</title>
+  <link rel="icon" type="image/png" href="shine.jpeg">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
 
-/* Body + gradient background + particles */
-body {
-  min-height: 100vh;
-  display:flex;
-  flex-direction:column;
-  color:#fff;
-  scroll-behavior:smooth;
-  background: linear-gradient(270deg, #121212, #1a1a2e, #121212);
-  background-size: 600% 600%;
-  animation: gradientBG 15s ease infinite;
-  position: relative;
-  overflow-x: hidden;
-}
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-.particles {
-  position: fixed; top:0; left:0; width:100%; height:100%; z-index:0; overflow:hidden;
-}
-.particles span {
-  position:absolute; display:block; width:10px; height:10px; background: rgba(255,255,255,0.1); border-radius:50%;
-  animation: float 10s linear infinite;
-}
-@keyframes float {
-  0% { transform: translateY(100vh) scale(0.5); opacity:0; }
-  50% { opacity:0.4; }
-  100% { transform: translateY(-10vh) scale(1); opacity:0; }
-}
+    body {
+      min-height: 100vh;
+      display:flex;
+      flex-direction:column;
+      color:#fff;
+      scroll-behavior:smooth;
+      background: linear-gradient(270deg, #121212, #1a1a2e, #121212);
+      background-size: 600% 600%;
+      animation: gradientBG 15s ease infinite;
+      text-align: center;
+      padding: 50px 20px;
+    }
 
-/* Navigation bar */
-nav.menu {
-  display:flex; justify-content:space-around; align-items:center;
-  height:60px; background: rgba(24,24,24,0.9); width:100%; max-width:800px; margin:20px auto;
-  border-radius:12px; position:relative; z-index:1; backdrop-filter: blur(10px);
-  box-shadow: 0 0 15px rgba(255,51,102,0.5), 0 0 30px rgba(57,161,244,0.3);
-  animation: navGlow 6s ease-in-out infinite alternate;
-}
-@keyframes navGlow {
-  0% { box-shadow: 0 0 15px rgba(255,51,102,0.5), 0 0 30px rgba(57,161,244,0.3); }
-  50% { box-shadow: 0 0 25px rgba(255,51,102,0.7), 0 0 50px rgba(57,161,244,0.5); }
-  100% { box-shadow: 0 0 15px rgba(255,51,102,0.5), 0 0 30px rgba(57,161,244,0.3); }
-}
-nav.menu a {
-  position:relative; padding:10px 20px; color:#b0bfd8; text-decoration:none; border-radius:10px; font-weight:bold; z-index:1; transition:0.3s;
-}
-nav.menu a:hover { color:#fff; transform: scale(1.1); }
-nav.menu a.active::before {
-  content:""; position:absolute; top:0; left:0; right:0; bottom:0; border-radius:10px; z-index:-1;
-  background: linear-gradient(45deg, #ff3366, #39a1f4, #ffcc00); background-size:400% 400%;
-  animation: activeTabGlow 4s linear infinite; box-shadow:0 0 15px rgba(255,51,102,0.5),0 0 20px rgba(57,161,244,0.5),0 0 25px rgba(255,204,0,0.5);
-}
-@keyframes activeTabGlow { 0% { background-position:0% 50%; } 50% { background-position:100% 50%; } 100% { background-position:0% 50%; } }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-/* Hero Section */
-.hero { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; padding:60px 10%; z-index:1; position:relative; }
-.hero-text { flex:1; max-width:600px; }
-.hero-text h2 { font-size:16px; color:#bbb; letter-spacing:2px; }
-.hero-text h1 { font-size:50px; margin:20px 0; }
-.hero-text h1 span { color:#ff3366; }
-.hero-text p { color:#aaa; margin:20px 0; line-height:1.6; }
-.hero-text .btn { display:inline-block; padding:12px 24px; margin-top:20px; border-radius:8px; text-decoration:none; transition:0.3s, transform 0.2s; font-weight:bold; color:#fff; }
-.hero-text .btn.apk-btn { background:#39a1f4; margin-top:15px; }
-.hero-text .btn.apk-btn:hover { background:#1f7fc1; transform: scale(1.05); }
+    h1 { font-size: 48px; margin-bottom: 20px; }
+    h1 span { color: #ff3366; }
+    p { color:#aaa; margin-bottom: 30px; font-size: 18px; line-height: 1.6; }
 
-.hero-img { flex:0.8; display:flex; justify-content:flex-end; }
-.hero-img img { width:280px; height:auto; border-radius:20px; box-shadow:0 0 20px rgba(255,51,102,0.5); margin-top:30px; }
+    a.btn { 
+      display:inline-block; 
+      padding: 12px 24px; 
+      margin: 10px; 
+      background: #39a1f4; 
+      color: #fff; 
+      text-decoration:none; 
+      border-radius: 8px; 
+      transition:0.3s; 
+      font-weight:bold;
+    }
 
-/* Quote section */
-.quote { margin:30px auto; font-style:italic; font-size:18px; color:#fff; background:#1c1c1c; border-left:4px solid #ffcc00; padding:40px 20px; border-radius:8px; max-width:800px; box-shadow:0 0 12px rgba(255,204,0,0.3); position:relative; overflow:hidden; }
-.quote::before { content:""; position:absolute; top:0; left:0; right:0; bottom:0; background-image:url("leaders.jpg"); background-size:cover; background-position:center 20%; opacity:0.08; filter:grayscale(100%) blur(1px); }
-.quote p, .quote span { position:relative; z-index:1; }
-.quote span { display:block; margin-top:10px; font-size:16px; color:#ffcc00; text-align:right; }
+    a.btn:hover { background:#1f7fc1; transform: scale(1.05); }
 
-footer { margin-top:50px; font-size:14px; color:#aaa; z-index:1; position:relative; }
+    footer { margin-top:50px; font-size:14px; color:#aaa; }
 
-/* Responsive */
-@media (max-width:900px){ .hero{ flex-direction:column; text-align:center; } .hero-img{ justify-content:center; margin-top:20px; } .hero-img img{ width:200px; } .quote span{text-align:center; font-size:14px; } }
-@media (max-width:400px){ .hero-text h1{ font-size:32px; } .hero-img img{ width:150px; } nav.menu{ flex-direction: column; height:auto; padding:10px 0; } }
-</style>
+    .hero-img img { 
+      width:280px; 
+      height:auto; 
+      border-radius:20px; 
+      box-shadow:0 0 20px rgba(255,51,102,0.5); 
+      margin-top:30px; 
+    }
+
+    .quote { 
+      margin:40px auto; 
+      font-style:italic; 
+      font-size:18px; 
+      color:#fff; 
+      background:#1c1c1c; 
+      border-left:4px solid #ffcc00; 
+      padding:30px 20px; 
+      border-radius:8px; 
+      max-width:700px; 
+      box-shadow:0 0 12px rgba(255,204,0,0.3); 
+    }
+
+    .quote span { 
+      display:block; 
+      margin-top:10px; 
+      font-size:16px; 
+      color:#ffcc00; 
+      text-align:right; 
+    }
+
+    /* Responsive */
+    @media(max-width: 500px) {
+      h1 { font-size: 36px; }
+      p { font-size:16px; }
+      .hero-img img { width:200px; }
+      .quote { font-size:16px; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- Particles -->
-<div class="particles">
-  <span></span><span></span><span></span><span></span><span></span>
-  <span></span><span></span><span></span><span></span><span></span>
-</div>
+  <h1>Hi, I'm <span>Sivi</span></h1>
+  <p>Welcome to my portfolio! Download my app to join rooms and see proposals live.</p>
 
-<!-- Navigation -->
-<nav class="menu">
-  <a href="index.html" class="active">Home</a>
-  <a href="apps.html">Apps</a>
-  <a href="privacy.html">Privacy</a>
-  <a href="delete.html">Delete</a>
-  <a href="contact.html">Contact</a>
-</nav>
+  <!-- Download APK -->
+  <a href="kadhal.apk" download class="btn">
+    Download Dreams App (APK)
+  </a>
+  <p style="color:#aaa; margin-top:5px; font-size:14px;">
+    Tap to install. Enable "Install from Unknown Sources" if needed.
+  </p>
 
-<!-- Hero Section -->
-<section class="hero">
-  <div class="hero-text">
-    <h2>WELCOME TO MY PAGE</h2>
-    <h1>Hi, I'm <span>Sivi</span><br>a Student.</h1>
-    <p>I am the one who doesn’t care about failure.<br>AI is our servant.</p>
-
-    <!-- APK Download -->
-    <a href="kadhal.apk" download class="btn apk-btn">Download Dreams App (APK)</a>
-    <p style="color:#aaa; margin-top:5px; font-size:14px;">
-      Tap to install. Enable "Install from Unknown Sources" if needed.
-    </p>
-
-    <!-- Quote -->
-    <div class="quote">
-      <p>“If you want to shine like a sun, first burn like a sun.”</p>
-      <span>— A.P.J. Abdul Kalam</span>
-    </div>
-  </div>
-
+  <!-- Hero Image -->
   <div class="hero-img">
     <img src="profile.jpeg" alt="Sivi Profile">
   </div>
-</section>
 
-<footer>
-  <p>© 2026 Shine | Built by Sivi</p>
-</footer>
+  <!-- Quote Section -->
+  <div class="quote">
+    <p>“If you want to shine like a sun, first burn like a sun.”</p>
+    <span>— A.P.J. Abdul Kalam</span>
+  </div>
 
-<!-- Smart Deep Link -->
-<script>
-const params = new URLSearchParams(window.location.search);
-const roomId = params.get('id');
-if(roomId){
-  const appLink = `myapp://proposal?id=${roomId}`;
-  const fallback = 'https://sivi36.github.io/';
-  const start = new Date().getTime();
-  window.location = appLink;
-  setTimeout(function(){
-    const elapsed = new Date().getTime() - start;
-    if(elapsed < 1600){ window.location = fallback; }
-  },1500);
-}
-</script>
+  <footer>
+    <p>© 2026 Shine | Built by Sivi</p>
+  </footer>
 
 </body>
 </html>
