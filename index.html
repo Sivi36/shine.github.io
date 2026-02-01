@@ -62,7 +62,6 @@
       100% { transform: translateY(-10vh) scale(1); opacity:0; }
     }
 
-    /* ===== Glowy Top Nav Bar ===== */
     nav.menu {
       display:flex;
       justify-content:space-around;
@@ -117,7 +116,6 @@
       100% { background-position:0% 50%; }
     }
 
-    /* ===== Hero Section ===== */
     .hero { display:flex; align-items:center; justify-content:space-between; padding:60px 10%; gap:40px; flex-wrap:wrap; z-index:1; position:relative; }
     .hero-text { max-width:600px; flex:1; }
     .hero-text h2 { font-size:16px; letter-spacing:2px; color:#bbb; }
@@ -126,10 +124,16 @@
     .hero-text p { margin:20px 0; color:#aaa; line-height:1.6; }
     .hero-text .btn { display:inline-block; padding:12px 24px; margin-top:20px; background:#ff3366; color:#fff; text-decoration:none; border-radius:8px; transition:0.3s, transform 0.2s; }
     .hero-text .btn:hover { background:#ff0055; transform: scale(1.05); }
+
+    /* New style for APK button */
+    .apk-btn {
+      background:#39a1f4 !important;
+      margin-top:15px;
+    }
+
     .hero-img { flex:0.8; display:flex; justify-content:flex-end; }
     .hero-img img { width:280px; height:auto; border-radius:20px; box-shadow:0 0 20px rgba(255,51,102,0.5); }
 
-    /* ===== Quote Section ===== */
     .quote { margin:30px auto; font-style:italic; font-size:18px; color:#fff; background:#1c1c1c; border-left:4px solid #ffcc00; padding:40px 20px; border-radius:8px; position:relative; overflow:hidden; max-width:800px; box-shadow:0 0 12px rgba(255,204,0,0.3); }
     .quote::before { 
       content:""; position:absolute; top:0; left:0; right:0; bottom:0; 
@@ -165,7 +169,7 @@
     <span></span><span></span><span></span><span></span><span></span>
   </div>
 
-  <!-- Top Nav Bar with Glow -->
+  <!-- Top Nav Bar -->
   <nav class="menu">
     <a href="index.html" class="tab home active">Home</a>
     <a href="apps.html" class="tab apps">Apps</a>
@@ -180,7 +184,17 @@
       <h2>WELCOME TO MY PAGE</h2>
       <h1>Hi, I'm <span>Sivi</span><br>a Student.</h1>
       <p>I am the one who doesn’t care about failure.<br>AI is our servant.</p>
+      
+      <!-- Existing button -->
       <a href="apps.html" class="btn">View My Apps</a>
+
+      <!-- APK download button -->
+      <a href="app/DreamsApp.apk" download class="btn apk-btn">
+        Download Dreams App (APK)
+      </a>
+      <p style="color:#aaa; margin-top:5px; font-size:14px;">
+        After downloading, tap the APK to install the app. Enable "Install from Unknown Sources" if prompted.
+      </p>
 
       <div class="quote">
         <p>“If you want to shine like a sun, first burn like a sun.”</p>
