@@ -14,11 +14,11 @@
       flex-direction:column;
       color:#fff;
       scroll-behavior:smooth;
+      position:relative;
+      overflow-x:hidden;
       background: linear-gradient(270deg, #121212, #1a1a2e, #121212);
       background-size: 600% 600%;
       animation: gradientBG 15s ease infinite;
-      text-align: center;
-      padding: 50px 20px;
     }
 
     @keyframes gradientBG {
@@ -27,91 +27,207 @@
       100% { background-position: 0% 50%; }
     }
 
-    h1 { font-size: 48px; margin-bottom: 20px; }
-    h1 span { color: #ff3366; }
-    p { color:#aaa; margin-bottom: 30px; font-size: 18px; line-height: 1.6; }
+    .particles {
+      position: fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      z-index:0;
+      overflow:hidden;
+    }
 
-    a.btn { 
-      display:inline-block; 
-      padding: 12px 24px; 
-      margin: 10px; 
-      background: #39a1f4; 
-      color: #fff; 
-      text-decoration:none; 
-      border-radius: 8px; 
-      transition:0.3s; 
+    .particles span {
+      position:absolute;
+      display:block;
+      width:10px;
+      height:10px;
+      background: rgba(255,255,255,0.1);
+      border-radius:50%;
+      animation: float 10s linear infinite;
+    }
+
+    .particles span:nth-child(1){ left:10%; animation-duration:12s; }
+    .particles span:nth-child(2){ left:20%; animation-duration:15s; }
+    .particles span:nth-child(3){ left:30%; animation-duration:18s; }
+    .particles span:nth-child(4){ left:40%; animation-duration:10s; }
+    .particles span:nth-child(5){ left:50%; animation-duration:14s; }
+    .particles span:nth-child(6){ left:60%; animation-duration:16s; }
+    .particles span:nth-child(7){ left:70%; animation-duration:13s; }
+    .particles span:nth-child(8){ left:80%; animation-duration:17s; }
+    .particles span:nth-child(9){ left:90%; animation-duration:11s; }
+    .particles span:nth-child(10){ left:95%; animation-duration:19s; }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(0.5); opacity:0; }
+      50% { opacity:0.4; }
+      100% { transform: translateY(-10vh) scale(1); opacity:0; }
+    }
+
+    nav.menu {
+      display:flex;
+      justify-content:space-around;
+      align-items:center;
+      height:60px;
+      background: rgba(24,24,24,0.9);
+      width:100%;
+      max-width:800px;
+      margin:20px auto;
+      border-radius:12px;
+      position:relative;
+      z-index:1;
+      box-shadow: 0 0 15px rgba(255,51,102,0.5), 0 0 30px rgba(57,161,244,0.3);
+      backdrop-filter: blur(10px);
+      animation: navGlow 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes navGlow {
+      0% { box-shadow: 0 0 15px rgba(255,51,102,0.5), 0 0 30px rgba(57,161,244,0.3); }
+      50% { box-shadow: 0 0 25px rgba(255,51,102,0.7), 0 0 50px rgba(57,161,244,0.5); }
+      100% { box-shadow: 0 0 15px rgba(255,51,102,0.5), 0 0 30px rgba(57,161,244,0.3); }
+    }
+
+    nav.menu a {
+      position:relative;
+      padding:10px 20px;
+      color:#b0bfd8;
+      text-decoration:none;
+      border-radius:10px;
+      transition:0.3s;
+      z-index:1;
       font-weight:bold;
     }
 
-    a.btn:hover { background:#1f7fc1; transform: scale(1.05); }
+    nav.menu a:hover { color:#fff; transform:scale(1.1); }
 
-    footer { margin-top:50px; font-size:14px; color:#aaa; }
-
-    .hero-img img { 
-      width:280px; 
-      height:auto; 
-      border-radius:20px; 
-      box-shadow:0 0 20px rgba(255,51,102,0.5); 
-      margin-top:30px; 
+    nav.menu a.active::before {
+      content:"";
+      position:absolute; top:0; left:0; right:0; bottom:0;
+      border-radius:10px;
+      z-index:-1;
+      transition:0.3s;
+      background: linear-gradient(45deg, #ff3366, #39a1f4, #ffcc00);
+      background-size: 400% 400%;
+      animation: activeTabGlow 4s linear infinite;
+      box-shadow:0 0 15px rgba(255,51,102,0.5), 0 0 20px rgba(57,161,244,0.5), 0 0 25px rgba(255,204,0,0.5);
     }
 
-    .quote { 
-      margin:40px auto; 
-      font-style:italic; 
-      font-size:18px; 
-      color:#fff; 
-      background:#1c1c1c; 
-      border-left:4px solid #ffcc00; 
-      padding:30px 20px; 
-      border-radius:8px; 
-      max-width:700px; 
-      box-shadow:0 0 12px rgba(255,204,0,0.3); 
+    @keyframes activeTabGlow {
+      0% { background-position:0% 50%; }
+      50% { background-position:100% 50%; }
+      100% { background-position:0% 50%; }
     }
 
-    .quote span { 
-      display:block; 
-      margin-top:10px; 
-      font-size:16px; 
-      color:#ffcc00; 
-      text-align:right; 
-    }
+    .hero { display:flex; align-items:center; justify-content:space-between; padding:60px 10%; gap:40px; flex-wrap:wrap; z-index:1; position:relative; }
+    .hero-text { max-width:600px; flex:1; }
+    .hero-text h2 { font-size:16px; letter-spacing:2px; color:#bbb; }
+    .hero-text h1 { font-size:50px; margin:20px 0; }
+    .hero-text h1 span { color:#ff3366; }
+    .hero-text p { margin:20px 0; color:#aaa; line-height:1.6; }
+    .hero-text .btn { display:inline-block; padding:12px 24px; margin-top:20px; background:#ff3366; color:#fff; text-decoration:none; border-radius:8px; transition:0.3s, transform 0.2s; }
+    .hero-text .btn:hover { background:#ff0055; transform: scale(1.05); }
 
-    /* Responsive */
-    @media(max-width: 500px) {
-      h1 { font-size: 36px; }
-      p { font-size:16px; }
+    .apk-btn { background:#39a1f4 !important; margin-top:15px; }
+
+    .hero-img { flex:0.8; display:flex; justify-content:flex-end; }
+    .hero-img img { width:280px; height:auto; border-radius:20px; box-shadow:0 0 20px rgba(255,51,102,0.5); }
+
+    .quote { margin:30px auto; font-style:italic; font-size:18px; color:#fff; background:#1c1c1c; border-left:4px solid #ffcc00; padding:40px 20px; border-radius:8px; position:relative; overflow:hidden; max-width:800px; box-shadow:0 0 12px rgba(255,204,0,0.3); }
+    .quote::before { 
+      content:""; position:absolute; top:0; left:0; right:0; bottom:0; 
+      background-image:url("leaders.jpg"); 
+      background-size:cover; 
+      background-position:center 20%; 
+      opacity:0.08; 
+      filter:grayscale(100%) blur(1px); 
+    }
+    .quote p, .quote span { position:relative; z-index:1; }
+    .quote span { display:block; margin-top:10px; font-size:16px; color:#ffcc00; text-align:right; }
+
+    footer { background:#1c1c1c; text-align:center; padding:20px; margin-top:50px; font-size:14px; color:#aaa; z-index:1; position:relative; }
+
+    @media (max-width:900px) {
+      .hero { flex-direction:column; text-align:center; }
+      .hero-img { justify-content:center; margin-top:20px; }
       .hero-img img { width:200px; }
-      .quote { font-size:16px; }
+      .quote span { text-align:center; font-size:14px; }
+    }
+    @media (max-width:400px) {
+      .hero-text h1 { font-size:32px; }
+      .hero-img img { width:150px; }
+      nav.menu { flex-direction: column; height:auto; padding:10px 0; }
     }
   </style>
 </head>
 <body>
 
-  <h1>Hi, I'm <span>Sivi</span></h1>
-  <p>Welcome to my portfolio! Download my app to join rooms and see proposals live.</p>
-
-  <!-- Download APK -->
-  <a href="kadhal.apk" download class="btn">
-    Download kadhal
-  </a>
-  <p style="color:#aaa; margin-top:5px; font-size:14px;">
-    Tap to install. Enable "Install from Unknown Sources" if needed.
-  </p>
-
-  <!-- Hero Image -->
-  <div class="hero-img">
-    <img src="profile.jpeg" alt="Sivi Profile">
+  <!-- Floating Particles -->
+  <div class="particles">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
   </div>
 
-  <!-- Quote Section -->
-  <div class="quote">
-    <p>“If you want to shine like a sun, first burn like a sun.”</p>
-    <span>— A.P.J. Abdul Kalam</span>
-  </div>
+  <!-- Top Nav Bar -->
+  <nav class="menu">
+    <a href="index.html" class="tab home active">Home</a>
+    <a href="apps.html" class="tab apps">Apps</a>
+    <a href="privacy.html" class="tab privacy">Privacy</a>
+    <a href="delete.html" class="tab delete">Delete</a>
+    <a href="contact.html" class="tab contact">Contact</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2>WELCOME TO MY PAGE</h2>
+      <h1>Hi, I'm <span>Sivi</span><br>a Student.</h1>
+      <p>I am the one who doesn’t care about failure.<br>AI is our servant.</p>
+      
+      <!-- Download APK -->
+      <a href="kadhal.apk" download class="btn apk-btn">
+        Download Dreams App (APK)
+      </a>
+      <p style="color:#aaa; margin-top:5px; font-size:14px;">
+        Tap to install. Enable "Install from Unknown Sources" if needed.
+      </p>
+
+      <!-- Smart Proposal Link -->
+      <a id="proposalLink" class="btn apk-btn" style="background:#ffcc00;">
+        Open Proposal Room
+      </a>
+
+      <div class="quote">
+        <p>“If you want to shine like a sun, first burn like a sun.”</p>
+        <span>— A.P.J. Abdul Kalam</span>
+      </div>
+    </div>
+
+    <div class="hero-img">
+      <img src="profile.jpeg" alt="Sivi Profile">
+    </div>
+  </section>
 
   <footer>
     <p>© 2026 Shine | Built by Sivi</p>
   </footer>
+
+  <script>
+    // Smart deep link
+    document.getElementById('proposalLink').addEventListener('click', function(e){
+      e.preventDefault();
+      // Replace ROOM1234 with dynamic Room ID if needed
+      var appLink = 'myapp://proposal?id=ROOM1234';
+      var fallback = 'https://sivi36.github.io/';
+
+      var now = new Date().getTime();
+      window.location = appLink;
+
+      setTimeout(function(){
+        var elapsed = new Date().getTime() - now;
+        if(elapsed < 1600){
+          window.location = fallback;
+        }
+      }, 1500);
+    });
+  </script>
 
 </body>
 </html>
