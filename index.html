@@ -125,11 +125,7 @@
     .hero-text .btn { display:inline-block; padding:12px 24px; margin-top:20px; background:#ff3366; color:#fff; text-decoration:none; border-radius:8px; transition:0.3s, transform 0.2s; }
     .hero-text .btn:hover { background:#ff0055; transform: scale(1.05); }
 
-    /* New style for APK button */
-    .apk-btn {
-      background:#39a1f4 !important;
-      margin-top:15px;
-    }
+    .apk-btn { background:#39a1f4 !important; margin-top:15px; }
 
     .hero-img { flex:0.8; display:flex; justify-content:flex-end; }
     .hero-img img { width:280px; height:auto; border-radius:20px; box-shadow:0 0 20px rgba(255,51,102,0.5); }
@@ -185,16 +181,18 @@
       <h1>Hi, I'm <span>Sivi</span><br>a Student.</h1>
       <p>I am the one who doesn’t care about failure.<br>AI is our servant.</p>
       
-      <!-- Existing button -->
-      <a href="apps.html" class="btn">View My Apps</a>
-
-      <!-- APK download button -->
-      <a href="app/DreamsApp.apk" download class="btn apk-btn">
+      <!-- Download APK -->
+      <a href="kadhal.apk" download class="btn apk-btn">
         Download Dreams App (APK)
       </a>
       <p style="color:#aaa; margin-top:5px; font-size:14px;">
-        After downloading, tap the APK to install the app. Enable "Install from Unknown Sources" if prompted.
+        Tap to install. Enable "Install from Unknown Sources" if needed.
       </p>
+
+      <!-- Smart Proposal Link -->
+      <a id="proposalLink" class="btn apk-btn" style="background:#ffcc00;">
+        Open Proposal Room
+      </a>
 
       <div class="quote">
         <p>“If you want to shine like a sun, first burn like a sun.”</p>
@@ -208,8 +206,28 @@
   </section>
 
   <footer>
-    <p>© 2025 Shine | Built by Sivi</p>
+    <p>© 2026 Shine | Built by Sivi</p>
   </footer>
+
+  <script>
+    // Smart deep link
+    document.getElementById('proposalLink').addEventListener('click', function(e){
+      e.preventDefault();
+      // Replace ROOM1234 with dynamic Room ID if needed
+      var appLink = 'myapp://proposal?id=ROOM1234';
+      var fallback = 'https://sivi36.github.io/';
+
+      var now = new Date().getTime();
+      window.location = appLink;
+
+      setTimeout(function(){
+        var elapsed = new Date().getTime() - now;
+        if(elapsed < 1600){
+          window.location = fallback;
+        }
+      }, 1500);
+    });
+  </script>
 
 </body>
 </html>
